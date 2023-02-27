@@ -3,18 +3,126 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
-body {
-	font-family: Verdana, sans-serif;
-	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
-	text-align: left;
-	background-color: #fff;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+
+@font-face {
+    font-family: 'PirataOne-Regular';
+    src: url('/fonts/PirataOne.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/Lora.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gloock';
+    src: url('/fonts/Gloock.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+
+    src: url('/fonts/Garamond/CormorantGaramond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+
+    src: url('/fonts/Garamond/CormorantGaramond-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/Garamond/CormorantGaramond-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background: #281819;
+    background: linear-gradient(0deg, #281819 0%, #161623 100%) no-repeat;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+body {
+    font-size: 24px;
+    margin: auto;
+    padding: 20px;
+    max-width: 65ch;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #dadfe8;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'PirataOne-Regular';
+}
+
 h1,
 h2,
 h3,
@@ -23,45 +131,48 @@ h5,
 h6,
 strong,
 b {
-	color: #222;
+    color: #fff;
 }
 a {
-	color: #3273dc;
+    color: #dadfe8;
+}
+a:hover {
+    text-decoration: underline;
 }
 nav a {
-	margin-right: 10px;
+    margin-right: 10px;
 }
 textarea {
-	width: 100%;
-	font-size: 16px;
+    width: 100%;
+    font-size: 16px;
 }
 input {
-	font-size: 16px;
+    font-size: 16px;
 }
 content {
-	line-height: 1.6;
+    line-height: 1.6;
 }
 table {
-	width: 100%;
+    width: 100%;
 }
 img {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
 code {
-	padding: 2px 5px;
-	background-color: #f2f2f2;
+    padding: 2px 5px;
+    background-color: #f2f2f2;
 }
 pre {
-	padding: 1rem;
+    padding: 1rem;
 }
 pre > code {
-	all: unset;
+    all: unset;
 }
 blockquote {
-	border: 1px solid #999;
-	color: #222;
-	padding: 2px 0px 2px 20px;
-	margin: 0px;
-	font-style: italic;
+    border: 1px solid #999;
+    color: #222;
+    padding: 2px 0px 2px 20px;
+    margin: 0px;
+    font-style: italic;
 }

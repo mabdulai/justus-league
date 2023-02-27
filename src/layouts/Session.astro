@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'sessions'>['data'];
+
+const { title, description, sessionDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} />
+        <style>
+            .title {
+                font-size: 2em;
+                margin: 0.25em 0 0;
+            }
+            hr {
+                border-top: 1px solid #ddd;
+                margin: 1rem 0;
+            }
+            .last-updated-on {
+                font-style: italic;
+            }
+            .mainImg {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <Header />
+        <main>
+            <article>
+                <div class="mainImg">{heroImage && <img src={heroImage} alt="" />}</div>
+                <h1 class="title">{title}</h1>
+                <FormattedDate date={sessionDate} />
+                {
+                    updatedDate && (
+                        <div class="last-updated-on">
+                            Last updated on <FormattedDate date={updatedDate} />
+                        </div>
+                    )
+                }
+                <hr />
+                <slot />
+            </article>
+        </main>
+    </body>
+</html>

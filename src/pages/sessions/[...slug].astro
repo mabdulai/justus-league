@@ -1,0 +1,20 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+import BlogPost from '../../layouts/Session.astro';
+
+export async function getStaticPaths() {
+    const sessions = await getCollection('sessions');
+    return sessions.map(session => ({
+        params: { slug: session.slug },
+        props: session,
+    }));
+}
+type Props = CollectionEntry<'sessions'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+    <Content />
+</BlogPost>
