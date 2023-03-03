@@ -2,7 +2,7 @@
 title: 'Session # 1 - Adventure begins'
 description: 'Het avontuur begint voor de pasgevormde groep "De Justus league"'
 sessionDate: '04 Feb 2023'
-heroImage: '/justus-league/lmop.jpeg'
+heroImage: '/justus-league/images/lmop.jpeg'
 ---
 
 ## Samenvatting

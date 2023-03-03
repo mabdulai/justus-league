@@ -13,7 +13,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <Header title={SITE_TITLE} />
         <main>
             <h1>Justus League</h1>
-            <p>Welkom op de adventure log van de Justus league.</p>
+            <p class="intro">Welkom op de adventure log van de Justus league.</p>
+            <div class="image-container">
+                <img
+                    src="/justus-league/images/lmopbg.png"
+                    alt="Lost Mines of Phandelver"
+                />
+            </div>
+            <hr />
             <p>
                 De Justus league is een onwaarschijnlijke groep avonturiers die bij elkaar
                 zijn gekomen op een missie om de verloren mijnen van Phandelver te
@@ -34,16 +41,39 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             h1 {
                 font-size: 6em;
                 line-height: 20px;
+                text-align: center;
             }
+
             h2 {
                 margin: 0.5em 0;
             }
+
             @media only screen and (max-width: 768px) {
                 h1 {
                     font-size: 3em;
-                    text-align: center;
                     line-height: 1.1;
                 }
+            }
+
+            .image-container {
+                position: relative;
+            }
+
+            .image-container::after {
+                position: absolute;
+                background: #093028; /* fallback for old browsers */
+                background: linear-gradient(rgba(0, 130, 170, 0), rgba(0, 130, 170, 1))
+                content: '';
+                z-index: 2;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0.8;
+            }
+
+            .intro {
+                text-align: center;
             }
         </style>
     </body>

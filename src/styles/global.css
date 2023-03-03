@@ -13,24 +13,9 @@
 }
 
 @font-face {
-    font-family: 'Lora';
-    src: url('/fonts/Lora.ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gloock';
-    src: url('/fonts/Gloock.ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-MediumItalic.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-MediumItalic.ttf')
+        format('truetype');
     font-weight: 500;
     font-style: italic;
 }
@@ -53,57 +38,72 @@
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-Light.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-Light.ttf')
+        format('truetype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-SemiBoldItalic.ttf')
+        format('truetype');
     font-weight: 600;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-Bold.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-Bold.ttf')
+        format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-BoldItalic.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-BoldItalic.ttf')
+        format('truetype');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-SemiBold.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-SemiBold.ttf')
+        format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-Italic.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-Italic.ttf')
+        format('truetype');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('/fonts/Garamond/CormorantGaramond-Regular.ttf') format('truetype');
+    src: url('/justus-league/fonts/Garamond/CormorantGaramond-Regular.ttf')
+        format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
     background: #281819;
     background: linear-gradient(0deg, #281819 0%, #161623 100%) no-repeat;
     font-family: 'Cormorant Garamond', serif;
+    border: 10px solid #fff;
 }
 
 body {
@@ -116,7 +116,7 @@ body {
     overflow-wrap: break-word;
     line-height: 1.5;
     color: #dadfe8;
-    min-height: 100vh;
+    min-height: calc(100vh - 20px);
 }
 
 h1 {
@@ -158,6 +158,7 @@ table {
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 3px;
 }
 code {
     padding: 2px 5px;
