@@ -110,7 +110,7 @@ body {
     font-size: 24px;
     margin: auto;
     padding: 20px;
-    max-width: 65ch;
+    max-width: 70ch;
     text-align: left;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -176,4 +176,14 @@ blockquote {
     padding: 2px 0px 2px 20px;
     margin: 0px;
     font-style: italic;
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        border: 5px solid #fff;
+    }
+
+    body {
+        min-height: calc(100vh - 10px);
+    }
 }
