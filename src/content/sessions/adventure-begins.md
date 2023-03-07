@@ -20,7 +20,7 @@ Hieruit bleek dat:
 -   De leider van de goblins Clark heet
 -   Er minder dan 20 goblins binnen in de grot zijn
 
-Éénmaal binnen in de grot kwam de groep een ruimte met wolven tegen. Deze moest natuurlijk onderzocht worden en door een dode goblin als voer voor de wolven te gebruiken kon de groep de ruimte bekijken. Snel werd het onderzoeken toch een gevecht met de wolven, en na wat wolf-on-wolf combat dankzij Xanax had de groep deze ook verslagen.
+Éénmaal binnen in de grot kwam de groep een ruimte met wolven tegen. Deze moest natuurlijk onderzocht worden en door een dode goblin als voer voor de wolven te gebruiken kon de groep de ruimte bekijken. Snel werd het onderzoeken toch een gevecht met de wolven, en na wat wolf-on-wolf combat dankzij XannaX had de groep deze ook verslagen.
 
 Na de wolf battle ging de groep verder de grot in, maar snel was het geluid van stromend water te horen wat de groep had verrast. Iedereen behalve Fernir kon het stromende water net ontwijken. Fernir lande als enige van de groep weer terug bij het begin van de grot. En hier is waar de eerste avontuur van The Justus league eindigde.
 
