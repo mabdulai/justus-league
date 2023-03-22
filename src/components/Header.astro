@@ -7,6 +7,7 @@ import HeaderLink from './HeaderLink.astro';
         <HeaderLink href="/justus-league/">Home</HeaderLink>
         <HeaderLink href="/justus-league/sessions">Sessions</HeaderLink>
         <HeaderLink href="/justus-league/characters">Characters</HeaderLink>
+        <HeaderLink href="/justus-league/npc">NPC's</HeaderLink>
     </nav>
 </header>
 <style>
@@ -15,5 +16,11 @@ import HeaderLink from './HeaderLink.astro';
     }
     h2 {
         margin: 0.5em 0;
+    }
+
+    @media only screen and (max-width: 768px) {
+        nav {
+            text-align: center;
+        }
     }
 </style>

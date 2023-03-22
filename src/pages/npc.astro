@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/NPC.astro';
+import NPC from '../components/NPC';
+import styles from '../styles/Character.module.css';
+
+const session1 = {
+    text: 'Session 1',
+    link: '/justus-league/sessions/adventure-begins',
+};
+---
+
+<Layout title="NPC's" description="Overzicht van al onze ontmoetingen">
+    <div class={styles.cards}>
+        <NPC
+            picture="https://i.imgur.com/NdHESyv.jpg"
+            appearsIn={session1}
+            meetingPlace="Herberg in Neverwinter"
+            name="Gundren Rockseeker"
+        >
+            Na een goede avond in de stam kroeg / herberg van de Justus league kwam
+            Gundren naar de groep toe met een voorstel. Dit voorstel zetten de groep op
+            hun avontuur. Over de dwerg zelf weet de groep nog niet veel.
+        </NPC>
+        <NPC
+            picture="https://db4sgowjqfwig.cloudfront.net/images/3755972/478b285f2245bb4b2302f17f2558e2d3.jpg"
+            appearsIn={session1}
+            meetingPlace="Nog niet ontmoet"
+            name="Silvar Hallwinter"
+        >
+            De groep weet enkel van Silvar dat hij op reis is met Gundren richting
+            Phanadil.
+        </NPC>
+        <NPC
+            picture="/justus-league/images/clark.png"
+            appearsIn={session1}
+            meetingPlace="Nog niet ontmoet"
+            name="Clark"
+        >
+            De beruchte leider van de goblins. De goblins zijn zo bang voor hem dat ze nog
+            liever dood gaan dan hem te verraden.
+        </NPC>
+    </div>
+</Layout>

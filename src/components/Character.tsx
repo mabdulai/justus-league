@@ -12,7 +12,7 @@ const Character: React.FC<CharacterProps> = ({ name, picture, race, klas, level 
     return (
         <div className={styles.card}>
             <div className={styles.characterImage}>
-                <img src={picture} alt="Fernir" />
+                <img src={picture} alt={name} />
             </div>
 
             <div className={styles.border}>

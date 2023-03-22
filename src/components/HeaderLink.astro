@@ -8,16 +8,22 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '');
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
-	<slot />
+    <slot />
 </a>
 <style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-		color: white;
-	}
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
-	}
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+    }
+    a.active {
+        font-weight: bolder;
+        text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 768px) {
+        a {
+            font-size: 18px;
+        }
+    }
 </style>
