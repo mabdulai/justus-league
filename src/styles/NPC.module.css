@@ -19,6 +19,8 @@
 .image img {
     border-radius: 0;
     float: left;
+    width: 100%;
+    min-height: 100%;
 }
 
 .info {
