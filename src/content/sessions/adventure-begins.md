@@ -30,7 +30,7 @@ Na de wolf battle ging de groep verder de grot in, maar snel was het geluid van 
 
 -   Gundren Rockseeker (Opdrachtgever)
 -   Silvar Hallwinter (Samen met Gundren richting Phandalin)
--   Clark (Goblin leader)
+-   Klarg (Goblin leader)
 
 ## Gevonden Loot
 
