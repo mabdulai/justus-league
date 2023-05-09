@@ -7,6 +7,11 @@ const session1 = {
     text: 'Session 1',
     link: '/justus-league/sessions/adventure-begins',
 };
+
+const session3 = {
+    text: 'Session 3',
+    link: '/justus-league/sessions/welcome-to-javelin',
+};
 ---
 
 <Layout title="NPC's" description="Overzicht van al onze ontmoetingen">
@@ -24,20 +29,38 @@ const session1 = {
         <NPC
             picture="https://db4sgowjqfwig.cloudfront.net/images/3755972/478b285f2245bb4b2302f17f2558e2d3.jpg"
             appearsIn={session1}
-            meetingPlace="Nog niet ontmoet"
-            name="Silvar Hallwinter"
+            meetingPlace="Cragmaw Cave"
+            name="Sildar Hallwinter"
         >
-            De groep weet enkel van Silvar dat hij op reis is met Gundren richting
+            De groep weet enkel van Sildar dat hij op reis is met Gundren richting
             Phanadil.
+            <hr />
+            De groep is er achter gekomen dat Sildar gezijeld werd in de Cragmaw Cave
         </NPC>
         <NPC
             picture="/justus-league/images/klarg.jpg"
             appearsIn={session1}
-            meetingPlace="Nog niet ontmoet"
+            meetingPlace="Cragmaw Cave"
             name="Klarg"
         >
             De beruchte leider van de goblins. De goblins zijn zo bang voor hem dat ze nog
             liever dood gaan dan hem te verraden.
+        </NPC>
+        <NPC
+            picture="/justus-league/images/linene.png"
+            appearsIn={session3}
+            meetingPlace="Shield Coster Trading Company"
+            name="Linene Graywind"
+        >
+            De eigenaar van de Shield Coster Trading Company
+        </NPC>
+        <NPC
+            picture="/justus-league/images/trilena.png"
+            appearsIn={session3}
+            meetingPlace="Stonehill Inn"
+            name="Trilena & Toblin Stonehill"
+        >
+            Het stel dat eigenaar is van de Stonehill Inn
         </NPC>
     </div>
 </Layout>

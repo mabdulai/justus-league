@@ -1,0 +1,61 @@
+---
+title: 'Session # 3 - Welcome to Javelin'
+description: 'De groep komt aan in Phandalin en mengt zich met de locals'
+sessionDate: '29 Apr 2023'
+heroImage: '/justus-league/images/javelin.png'
+---
+
+## Samenvatting
+
+We beginnen dit avontuur met een magische maal van Ithil dat de gevallen Sildar en Fernir weer aanspreekbaar maakt.
+
+Na een nogal aftastend en wantrouwend gesprek met Sildar, de naam van de ontvoerde man is Sildar Hallwinter, een ridder van de Lord's Alliance, komt de groep er achter dat hij een vriend van hun opdrachtgever Gundren is.
+
+Sildar vertelt de groep dat Klarg opzoek was naar een kaart die Gundren waarschijnlijk heeft. Het is een kaart van een mijn. Meer over de mijn weet Sildar niet
+
+Ook vertelt Sildar dat Gundren waarschijnlijk is mee genomen naar Cragmaw Castle. Het hoofdkwartier van de Goblins.
+
+De groep kiest ervoor om eerst hun reis te hervatten naar Phandalin om Sildar hier naar toe te brengen en hun originele opdracht te voltooien.
+
+Eenmaal in Phandalin aangekomen stopt de groep eerst bij een gebouw met dezelfde leeuwen logo als op hun gevonden goederen. Hier ontmoeten ze Linene Graywind. Ze werkt voor de Lionshield Coster. De groep brengt de gestolen goederen terug en krijgt hier een beloning voor.
+
+![Shield Coster](/justus-league/images/shield-coster.png)
+
+Ook brengen ze de goederen van Gundren bij Barthens Provisions en ontvangen hun beloning voor hun werk.
+
+De groep leert ook over een bende die de stad terroriseert. De Redbrand Ruffians. Deze groep gebruikt de Sleeping Giant (bar) als hun thuisbasis. Deze bende zorgt voor onrust in Phandalin en ze beroven veel mensen van hun goederen.
+
+De Townmaster Harbin is niet geliefd in Phandalin, voornamelijk wegens zijn zwakke optreden tegen deze Ruffians.
+
+Na een goede nachtrust in de Stonehill Inn besluit de groep samen met Sildar de Townmaster te confronteren over zijn handelen, maar wordt ondertussen gestopt door wat Ruffians die de groep probeert aan te vallen. Enkel onderschatten ze de groep, en vooral de zeer ervaren Knight Sildar.
+
+![Ruffians](/justus-league/images/ruffians.png)
+
+De groep verslaat de Ruffians en houdt er 1 gevangen om mee te nemen naar de Townmaster.
+
+## Belangrijke namen en plaatsen
+
+Namen:
+
+-   Sildar Hallwinter
+-   Thardin & Nundro (Broers van Gundren)
+-   Townmaster Harbin
+-   Linene Graywind
+-   Trilena & Toblin Stonehill
+-   Redbrand Ruffians
+
+Locaties:
+
+-   Shield Coster Trading Company
+-   Barthens Provisions
+-   Stonehill Inn
+-   Sleeping Giant
+-   Townmaster's Hall
+
+---
+
+## Gevonden Loot
+
+-   50G van Linene
+-   50G vanuit Barthens
+-   4 Rode capes
