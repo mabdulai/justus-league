@@ -1,0 +1,56 @@
+---
+title: 'Session # 4 - The Wanted Man'
+description: 'Na informatie van de Townmaster opzoek naar de Redbrands in Tresandar Manor'
+sessionDate: '09 Jun 2023'
+heroImage: '/justus-league/images/sacrograph.png'
+---
+
+## Samenvatting
+
+Met de ruffians verslagen en 1 gevangen genomen ging de groep naar de Townmaster. Harbin was duidelijk overdonderd met de komst van de ruffians en wist hier ook geen raad mee.
+
+De groep haalt meer informatie over de Ruffians bij de overrompelde Townmaster op en gooit samen met de hulp van Miss Crawley de gevangen Ruffian in de cel.
+
+De groep leert dat de ruffians Tresendar Manor als thuisbasis heeft en besluit alle ruffians uit te roeien om daardoor Phandalin weer veilig te maken.
+
+Bij het verlaten van de Townhall ziet de groep een poster met de vermiste familie Dendrar.
+
+Voor dat de groep naar Tresendar Manor gaat willen ze eerst langs de stamkroeg van de Ruffians, The Sleeping Giant. Met goed sluipwerk van Ool zien ze dat de bar leeg is. Na de bar te onderzoeken vind de groep niets, enkel een notitie met daarop "Zoek de andere Dendrars".
+
+![Sleeping Giant](/justus-league/images/sleepinggiant.png)
+
+Eenmaal bij de Manor aangekomen valt het de groep op dat ook deze verlaten is. Ze komen gemakkelijk binnen en de eerste verdieping is verlaten, vervallen en oud. Een deur naar een kelder lijkt interessanter.
+
+![Tresendar](/justus-league/images/tresendar.png)
+
+Beneden in de kelder is er de keuze uit twee deuren. De groep kiest de verste deur en vind daar een crypt met drie sarcofagen. In twee van de drie kisten wordt een ring gevonden.
+
+Xanax zijn magic sight zorgt ervoor dat een trap wordt gezien voordat de groep er door heen loopt. Er wordt een steen doorheen gegooid en 3 skeletten bij de sarcofagen komen tot leven. Deze skeletten worden door een half ling rage van Ool vernietigd.
+
+Eenmaal verder komt de groep een dichte armory tegen. Ze krijgen de deur niet open. Maar dit stopt Ithil niet. Door haar druid abilities kan zij in een spin veranderen en gaat de ruimte binnen. Hierbinnen ligt een groot aresnaal aan wapens.
+
+De groep besluit deze later op te halen en loopt verder, maar dan begint Ool ineens in het niets te staren. En hij hoort: "Wie is deze gezochte man?" Wat kan dit betekenen?
+
+## Belangrijke namen en plaatsen
+
+Namen:
+
+-   Familie Dendrar
+-   Miss Crawley
+-   Wizzard Glasstaff
+
+Locaties:
+
+-   Tresendar Manor
+
+---
+
+## Gevonden Loot
+
+-   12 rode capes
+-   25 bever pelten
+-   12 speren
+-   6 short swords
+-   4 long swords
+-   6 long crossbows
+-   8 quivers met crossbow
