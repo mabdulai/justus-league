@@ -1,19 +1,17 @@
-import styles from '../styles/Character.module.css';
+import styles from '@styles/Character.module.css';
 
 interface CharacterProps {
     name: string;
-    picture: string;
     race: string;
     klas: string;
     level: number;
+    children: React.ReactNode;
 }
 
-const Character: React.FC<CharacterProps> = ({ name, picture, race, klas, level }) => {
+const Character: React.FC<CharacterProps> = ({ name, race, klas, level, children }) => {
     return (
         <div className={styles.card}>
-            <div className={styles.characterImage}>
-                <img src={picture} alt={name} />
-            </div>
+            <div className={styles.characterImage}>{children}</div>
 
             <div className={styles.border}>
                 <div className={styles.level}>{level}</div>

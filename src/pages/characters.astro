@@ -1,45 +1,34 @@
 ---
 import Layout from '../layouts/Characters.astro';
-import Character from '../components/Character';
-import styles from '../styles/Character.module.css';
+import Character from '@components/Character';
+import styles from '@styles/Character.module.css';
+import { Image } from 'astro:assets';
+import fernir from '@assets/images/fernir.png';
+import ool from '@assets/images/ool.jpeg';
+import xannax from '@assets/images/xannax.png';
+import ithil from '@assets/images/ithil.png';
+import nedsie from '@assets/images/nedsie.jpg';
 ---
 
 <Layout title="Characters" description="Overzicht van alle avonturiers">
     <div class={styles.cards}>
-        <Character
-            picture="/justus-league/images/fernir.png"
-            name="Fernir"
-            klas="Barbarian"
-            race="DragonBorn"
-            level={2}
-        />
-        <Character
-            picture="/justus-league/images/ithil.png"
-            name="Ithil"
-            klas="Druid"
-            race="Elf"
-            level={2}
-        />
-        <Character
-            picture="/justus-league/images/ool.jpeg"
-            name="Ool"
-            klas="Monk"
-            race="Halfling"
-            level={2}
-        />
-        <Character
-            picture="/justus-league/images/xannax.png"
-            name="XannaX"
-            klas="Warlock"
-            race="Changeling"
-            level={2}
-        />
-        <Character
-            picture="/justus-league/images/nedsie.jpg"
-            name="Nedsie"
-            klas="Fighter"
-            race="Halfling"
-            level={2}
-        />
+        <Character name="Fernir" klas="Barbarian" race="DragonBorn" level={2}>
+            <Image src={fernir} alt="Fernir" />
+        </Character>
+        <Character name="Ithil" klas="Druid" race="Elf" level={2}>
+            <Image src={ithil} alt="Ithil" />
+        </Character>
+
+        <Character name="Ool" klas="Monk" race="Halfling" level={2}>
+            <Image src={ool} alt="Ool" />
+        </Character>
+
+        <Character name="XannaX" klas="Warlock" race="Changeling" level={2}>
+            <Image src={xannax} alt="Xannax" />
+        </Character>
+
+        <Character name="Nedsie" klas="Fighter" race="Halfling" level={2}>
+            <Image src={nedsie} alt="Nedsie" />
+        </Character>
     </div>
 </Layout>

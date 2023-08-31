@@ -1,8 +1,9 @@
 ---
-import { Image } from '@astrojs/image/components';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import phandelver from '@assets/images/lmopbg.png';
+import { Image } from 'astro:assets';
 ---
 
 <!DOCTYPE html>
@@ -16,10 +17,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <h1>Justus League</h1>
             <p class="intro">Welkom op de adventure log van de Justus league.</p>
             <div class="image-container">
-                <img
-                    src="/justus-league/images/lmopbg.png"
-                    alt="Lost Mines of Phandelver"
-                />
+                <Image src={phandelver} alt="Lost Mines of Phandelver" />
             </div>
             <hr />
             <p>

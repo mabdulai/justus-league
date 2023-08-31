@@ -2,6 +2,12 @@
 import Layout from '../layouts/NPC.astro';
 import NPC from '../components/NPC';
 import styles from '../styles/Character.module.css';
+import klarg from '@assets/images/klarg.jpg';
+import linene from '@assets/images/linene.png';
+import harbin from '@assets/images/harbin.png';
+import trilena from '@assets/images/trilena.png';
+import gundren from '@assets/images/gundren.jpeg';
+import sildar from '@assets/images/sildar.jpeg';
 
 const session1 = {
     text: 'Session 1',
@@ -12,12 +18,17 @@ const session3 = {
     text: 'Session 3',
     link: '/justus-league/sessions/welcome-to-javelin',
 };
+
+const session4 = {
+    text: 'Session 4',
+    link: '/justus-league/sessions/the-wanted-man',
+};
 ---
 
 <Layout title="NPC's" description="Overzicht van al onze ontmoetingen">
     <div class={styles.cards}>
         <NPC
-            picture="https://i.imgur.com/NdHESyv.jpg"
+            picture={gundren.src}
             appearsIn={session1}
             meetingPlace="Herberg in Neverwinter"
             name="Gundren Rockseeker"
@@ -27,7 +38,7 @@ const session3 = {
             hun avontuur. Over de dwerg zelf weet de groep nog niet veel.
         </NPC>
         <NPC
-            picture="https://db4sgowjqfwig.cloudfront.net/images/3755972/478b285f2245bb4b2302f17f2558e2d3.jpg"
+            picture={sildar.src}
             appearsIn={session1}
             meetingPlace="Cragmaw Cave"
             name="Sildar Hallwinter"
@@ -38,7 +49,7 @@ const session3 = {
             De groep is er achter gekomen dat Sildar gezijeld werd in de Cragmaw Cave
         </NPC>
         <NPC
-            picture="/justus-league/images/klarg.jpg"
+            picture={klarg.src}
             appearsIn={session1}
             meetingPlace="Cragmaw Cave"
             name="Klarg"
@@ -47,7 +58,7 @@ const session3 = {
             liever dood gaan dan hem te verraden.
         </NPC>
         <NPC
-            picture="/justus-league/images/linene.png"
+            picture={linene.src}
             appearsIn={session3}
             meetingPlace="Shield Coster Trading Company"
             name="Linene Graywind"
@@ -55,12 +66,20 @@ const session3 = {
             De eigenaar van de Shield Coster Trading Company
         </NPC>
         <NPC
-            picture="/justus-league/images/trilena.png"
+            picture={trilena.src}
             appearsIn={session3}
             meetingPlace="Stonehill Inn"
             name="Trilena & Toblin Stonehill"
         >
             Het stel dat eigenaar is van de Stonehill Inn
+        </NPC>
+        <NPC
+            picture={harbin.src}
+            appearsIn={session4}
+            meetingPlace="Townhall"
+            name="Harbin Wester"
+        >
+            De niet geliefde Townmaster Harbin van Phandalin
         </NPC>
     </div>
 </Layout>

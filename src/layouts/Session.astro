@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Header from '@components/Header.astro';
+import FormattedDate from '@components/FormattedDate.astro';
+import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'sessions'>['data'];
 
@@ -35,7 +36,7 @@ const { title, description, sessionDate, updatedDate, heroImage } = Astro.props;
         <Header />
         <main>
             <article>
-                <div class="mainImg">{heroImage && <img src={heroImage} alt="" />}</div>
+                <div class="mainImg">{heroImage && <Image src={heroImage} alt="" />}</div>
                 <h1 class="title">{title}</h1>
                 <FormattedDate date={sessionDate} />
                 {

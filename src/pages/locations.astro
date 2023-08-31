@@ -1,22 +1,27 @@
 ---
 import Layout from '../layouts/NPC.astro';
 import styles from '../styles/Character.module.css';
+import shieldCoster from '@assets/images/shield-coster.png';
+import barthens from '@assets/images/barthens.png';
+import stonehill from '@assets/images/stonehill.png';
+import tresendar from '@assets/images/tresendar.png';
+import cragmawCave from '@assets/images/cragmaw-cave.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Locations" description="Overzicht van al onze lokaties">
     <div class={styles.cards}></div>
     <h2>Cragmaw's Hideout</h2>
-    <img src="/justus-league/images/cragmaw-cave.jpg" alt="Cragmaw's Hideout" />
+    <Image src={cragmawCave} alt="Cragmaw's Hideout" />
     <hr />
     <h2>Shield Coster - Trading Company</h2>
-    <img
-        src="/justus-league/images/shield-coster.png"
-        alt="Shield Coster - Trading Company"
-    />
+    <Image src={shieldCoster} alt="Shield Coster - Trading Company" />
     <hr />
     <h2>Barthens Provisions</h2>
-    <img src="/justus-league/images/barthens.png" alt="Barthens Provisions" />
+    <Image src={barthens} alt="Barthens Provisions" />
     <hr />
     <h2>Stonehill Inn</h2>
-    <img src="/justus-league/images/stonehill.png" alt="Stonehill Inn" />
+    <Image src={stonehill} alt="Stonehill Inn" />
+    <h2>Tresendar Manor</h2>
+    <Image src={tresendar} alt="Tresendar Manor" />
 </Layout>
