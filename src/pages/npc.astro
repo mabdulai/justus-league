@@ -8,6 +8,12 @@ import harbin from '@assets/images/harbin.png';
 import trilena from '@assets/images/trilena.png';
 import gundren from '@assets/images/gundren.jpeg';
 import sildar from '@assets/images/sildar.jpeg';
+import dendrars from '@assets/images/dendrars.png';
+import glasstaff from '@assets/images/glasstaff.png';
+import droop from '@assets/images/droop.png';
+import qelinne from '@assets/images/qelinne.png';
+import halia from '@assets/images/halia.png';
+
 
 const session1 = {
     text: 'Session 1',
@@ -22,6 +28,16 @@ const session3 = {
 const session4 = {
     text: 'Session 4',
     link: '/justus-league/sessions/the-wanted-man',
+};
+
+const session6 = {
+    text: 'Session 6',
+    link: '/justus-league/sessions/surrounded',
+};
+
+const session7 = {
+    text: 'Session 6',
+    link: '/justus-league/sessions/victors',
 };
 ---
 
@@ -80,6 +96,46 @@ const session4 = {
             name="Harbin Wester"
         >
             De niet geliefde Townmaster Harbin van Phandalin
+        </NPC>
+        <NPC
+            picture={glasstaff.src}
+            appearsIn={session6}
+            meetingPlace="Tresendar Manor"
+            name='Iarno "Glasstaff" Albreck'
+        >
+            Lid van de Lord Alliance maar toch onder controle van de Black Spider
+        </NPC>
+        <NPC
+            picture={dendrars.src}
+            appearsIn={session6}
+            meetingPlace="Tresendar Manor"
+            name="Mirna, Nilsa, Nars Dendrar"
+        >
+            De ontvoerde familie uit Phandalin.
+        </NPC>
+        <NPC
+            picture={droop.src}
+            appearsIn={session6}
+            meetingPlace="Tresendar Manor"
+            name="Droop"
+        >
+            Het nieuwe trouwe hulpje van de Justus League
+        </NPC>
+        <NPC
+            picture={qelinne.src}
+            appearsIn={session7}
+            meetingPlace="Stonehill Inn"
+            name="Qelinne Alderleaf"
+        >
+            De bezorgde dorpsgenoot van de familie Dendrar
+        </NPC>
+        <NPC
+            picture={halia.src}
+            appearsIn={session7}
+            meetingPlace="Stonehill Inn"
+            name="Halia Thorton"
+        >
+            De mysterieuze leider van de Phandalin Miners Exchange
         </NPC>
     </div>
 </Layout>
