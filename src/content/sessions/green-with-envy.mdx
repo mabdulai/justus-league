@@ -8,8 +8,14 @@ heroImage: '../../assets/images/dragon.jpg'
 import { Image } from 'astro:assets';
 import burningBuilding from '@assets/images/burningbuilding.jpg';
 import cultist from '@assets/images/cultist.jpg';
+import audio from '@assets/audio/dragon.mp3';
 
 ## Samenvatting
+
+<audio controls>
+  <source src={audio} type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
 
 De groep komt aan bij een gebouw waar nog licht brandt. Hopend dat er iemand open doet om de groep binnen te laten om uit te rusten kloppen ze aan de deur.
 Er wordt geantwoord maar ze worden niet met open armen ontvangen. Na wat bekvechten met een gesloten deur besluit de groep toch binnen te breken.
