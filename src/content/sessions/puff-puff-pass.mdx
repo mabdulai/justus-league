@@ -9,6 +9,7 @@ import { Image } from 'astro:assets';
 import globes from '@assets/images/globes.webp';
 import wraith from '@assets/images/wraith.webp';
 import audio from '@assets/audio/knockout-gas.mp3';
+import Popper from '../../components/Popper';
 
 ## Samenvatting
 
@@ -20,6 +21,10 @@ import audio from '@assets/audio/knockout-gas.mp3';
 De groep komt aan in een mossige ruimte met wat op het eerste oog lijkt op magische bollen verspreid over de grond.
 
 Ithil baant zich een weg door de bollen.
+
+<Popper text="This is the tooltip text!" client:idle>
+    Hover over <strong>this text</strong>.
+</Popper>
 
 Fernir en Nedsie lopen wat onhandiger door de bollen en raken er meerdere aan. Hierdoor komt wat eerst lijkt op een pilaar in de ruimte tot leven.
 De pilaar is een plantaardige wezen die niet blij is dat de groep in deze ruimte is.

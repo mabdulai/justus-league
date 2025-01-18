@@ -7,5 +7,5 @@ import react from '@astrojs/react';
 export default defineConfig({
     site: 'https://mabdulai.github.io',
     base: '/justus-league',
-    integrations: [mdx(), sitemap(), react()],
+    integrations: [sitemap(), react(), mdx()],
 });

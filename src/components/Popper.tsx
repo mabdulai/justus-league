@@ -1,38 +1,49 @@
-import styles from '@styles/Popper.module.css';
 import { useState } from 'react';
-import { useFloating, useHover, useInteractions } from '@floating-ui/react';
+import { usePopper } from 'react-popper';
+import styles from '@styles/Popper.module.css';
 
 interface PopperProps {
+    children: React.ReactNode;
     text: string;
 }
 
-const Popper: React.FC<PopperProps> = ({ text }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const Popper: React.FC<PopperProps> = ({ children, text }) => {
+    const [isOpen, setIsOpen] = useState(true);
 
-    const { refs, floatingStyles, context } = useFloating({
-        open: isOpen,
-        onOpenChange: setIsOpen,
-    });
+    // Popper state and positioning
+    const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null);
+    const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+    const { styles: popperStyles, attributes } = usePopper(
+        referenceElement,
+        popperElement,
+        {
+            placement: 'top', // Position above the reference element
+        }
+    );
 
-    const hover = useHover(context);
-    const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
     return (
         <>
             <span
                 className={styles.text}
-                ref={refs.setReference}
-                {...getReferenceProps()}
+                ref={setReferenceElement} // Assign reference element
+                onMouseEnter={() => {
+                    setIsOpen(true);
+                    console.log('hi');
+                }} // Show on hover
+                onMouseLeave={() => setIsOpen(false)} // Hide on hover leave
             >
-                {text}
+                {children}
             </span>
+
+            {/* Popper content */}
             {isOpen && (
                 <div
                     className={styles.floating}
-                    ref={refs.setFloating}
-                    style={floatingStyles}
-                    {...getFloatingProps()}
+                    ref={setPopperElement} // Assign popper element
+                    style={popperStyles.popper}
+                    {...attributes.popper}
                 >
-                    Floating element
+                    {text}
                 </div>
             )}
         </>
