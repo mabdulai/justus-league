@@ -1,24 +1,25 @@
 {
-    "name": "superior-satellite",
-    "type": "module",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro"
-    },
-    "dependencies": {
-        "@astrojs/mdx": "^4.0.6",
-        "@astrojs/react": "^4.1.5",
-        "@astrojs/rss": "^4.0.11",
-        "@astrojs/sitemap": "^3.2.1",
-        "@types/react": "^18.2.21",
-        "@types/react-dom": "^18.2.7",
-        "astro": "^5.1.7",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-popper": "^2.3.0"
-    }
+  "name": "justus-league",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.6",
+    "@astrojs/react": "^4.1.5",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@popperjs/core": "^2.11.8",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "astro": "^5.1.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0"
+  }
 }
