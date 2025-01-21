@@ -1,42 +1,84 @@
-import styles from '@styles/Popper.module.css';
 import { useState } from 'react';
-import { useFloating, useHover, useInteractions } from '@floating-ui/react';
+import { usePopper } from 'react-popper';
+import styles from '@styles/Popper.module.css';
+import { Image } from 'astro:assets';
+import fernir from '@assets/images/fernir.png';
+import ool from '@assets/images/ool.jpeg';
+import xannax from '@assets/images/xannax.png';
+import ithil from '@assets/images/ithil.png';
+import nedsie from '@assets/images/nedsie.jpg';
+import Character from './Character';
 
 interface PopperProps {
-    text: string;
+  children: React.ReactNode;
+  character: CharacterType;
 }
 
-const Popper: React.FC<PopperProps> = ({ text }) => {
-    const [isOpen, setIsOpen] = useState(false);
+type CharacterType = 'fernir' | 'ool' | 'xannax' | 'ithil' | 'nedsie';
 
-    const { refs, floatingStyles, context } = useFloating({
-        open: isOpen,
-        onOpenChange: setIsOpen,
-    });
+const getCharacterInfo = (character: CharacterType) => {
+  const characters = {
+    fernir: { name: 'Fernir', race: 'Dragonborn', klas: 'Barbarian', image: fernir.src },
+    ool: { name: 'Ool', race: 'Halfling', klas: 'Monk', image: ool.src },
+    nedsie: { name: 'Nedsie', race: 'Halfling', klas: 'Fighter', image: nedsie.src },
+    ithil: { name: 'Ithil', race: 'Elf', klas: 'Druid', image: ithil.src },
+    xannax: { name: 'Xannax', race: 'Changeling', klas: 'Warlock', image: xannax.src },
+  };
 
-    const hover = useHover(context);
-    const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
-    return (
-        <>
-            <span
-                className={styles.text}
-                ref={refs.setReference}
-                {...getReferenceProps()}
-            >
-                {text}
-            </span>
-            {isOpen && (
-                <div
-                    className={styles.floating}
-                    ref={refs.setFloating}
-                    style={floatingStyles}
-                    {...getFloatingProps()}
-                >
-                    Floating element
-                </div>
-            )}
-        </>
-    );
+  return characters[character];
+};
+
+const getCharacter = (character: CharacterType) => {
+  const info = getCharacterInfo(character);
+  return (
+    <Character name={info.name} klas={info.klas} race={info.race} level={3}>
+      <img src={info.image} alt={info.name} />
+    </Character>
+  );
+};
+
+const Popper: React.FC<PopperProps> = ({ children, character }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Popper state and positioning
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+  const characterImage = getCharacter(character);
+  const { styles: popperStyles, attributes } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      placement: 'top',
+      modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
+    }
+  );
+
+  return (
+    <>
+      <span
+        className={styles.text}
+        ref={setReferenceElement}
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+      >
+        {children}
+      </span>
+
+      {/* Popper content */}
+      {isOpen && (
+        <div
+          className={styles.floating}
+          ref={setPopperElement} // Assign popper element
+          style={popperStyles.popper}
+          {...attributes.popper}
+        >
+          <div ref={setArrowElement} style={popperStyles.arrow}></div>
+          {characterImage}
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Popper;
