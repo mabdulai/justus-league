@@ -8,10 +8,11 @@ heroImage: '../../assets/images/axe.png'
 import { Image } from 'astro:assets';
 import nothic from '@assets/images/nothic.png';
 import drunks from '@assets/images/drunks.png';
+import CharacterPopper from '@components/CharacterPopper';
 
 ## Samenvatting
 
-Ool is niet de enige die stemmen in z'n hoofd hoort. Als de rest van de groep de ruimte binnen komt horen ook zij een zeer veronrustende stem in hun hoofd.
+<CharacterPopper character="ool" client:load>Ool</CharacterPopper> is niet de enige die stemmen in z'n hoofd hoort. Als de rest van de groep de ruimte binnen komt horen ook zij een zeer veronrustende stem in hun hoofd.
 
 Snel kwam de bron tevoorschijn. Het is een éénoogig gedrocht. Hij communiceerd telepatisch met de groep dat zij een heerlijk hapje zullen zijn. Dus er valt maar één ding te doen. Het monster vernietigen.
 
@@ -23,13 +24,13 @@ Later komt hij toch te voorschijn en Ool gaat er achteraan. Maar valt door midde
 
 De rest van de groep maakt korte metten met het wezen en het valt ook in de mist. Xanax gaat er achteraan om zijn trofee te claimen. Maar raakt onder invloed van de mist.
 
-Ool vindt een ander rottend lijk en ook een schatkist in de mist. Dit wordt allemaal veilig gesteld.
+<CharacterPopper character="ool" client:load>Ool</CharacterPopper> vindt een ander rottend lijk en ook een schatkist in de mist. Dit wordt allemaal veilig gesteld.
 
-Als Xanax uit de mist komt is hij een Bugbear. Is hij dit altijd al geweest? De groep is in de war, Xanax niet.
+Als <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> uit de mist komt is hij een Bugbear. Is hij dit altijd al geweest? De groep is in de war, <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> niet.
 
-In de kist vind Fernir tussen de loot een Greataxe die te behoorde aan de Black hawk.
+In de kist vind <CharacterPopper character="fernir" client:load>Fernir</CharacterPopper> tussen de loot een Greataxe die te behoorde aan de Black hawk.
 
-De groep gaat verder en komt 4 dronken Ruffians tegen die aan het gokken zijn, Xanax komt overtuigd de Ruffians dat hij hun nieuwe baas is en hierdoor heeft de groep genoeg kans om deze Ruffians te verslaan.
+De groep gaat verder en komt 4 dronken Ruffians tegen die aan het gokken zijn, <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> komt overtuigd de Ruffians dat hij hun nieuwe baas is en hierdoor heeft de groep genoeg kans om deze Ruffians te verslaan.
 
 <Image src={drunks} alt="Drunks" />
 

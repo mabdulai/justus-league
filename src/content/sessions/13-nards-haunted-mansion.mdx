@@ -7,6 +7,7 @@ heroImage: '../../assets/images/hauntedhouse.jpg'
 
 import { Image } from 'astro:assets';
 import audio from '@assets/audio/unlucky-warlock.mp3';
+import CharacterPopper from '@components/CharacterPopper';
 
 ## Samenvatting
 
@@ -15,8 +16,8 @@ import audio from '@assets/audio/unlucky-warlock.mp3';
   Your browser does not support the audio element.
 </audio>
 
-Voor Xannax begint de tijd te dringen, hij is haastig op zoek naar een robijn. De groep is in Javelin om wat goederen te verkopen en te kopen.
-Maar voor Xannax is dit ook de uitgesproken kans om rond te vragen over robijnen. Helaas met weinig resultaat.
+Voor <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> begint de tijd te dringen, hij is haastig op zoek naar een robijn. De groep is in Javelin om wat goederen te verkopen en te kopen.
+Maar voor <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> is dit ook de uitgesproken kans om rond te vragen over robijnen. Helaas met weinig resultaat.
 
 "Moet je bij de Miners Exchange wezen" is wat de groep telkens krijgt te horen.
 
@@ -24,13 +25,13 @@ Over een week is er een festival in Javelin, Townmaster Harbin is in volle voorb
 
 Ze worden doorverwezen naar de Temple of Luck (een klein altaartje op het midden van het plein).
 
-Garelle is bij de temple en helpt de groep uiteindelijk ook om het lijk van Gundren te begraven.
+Garaele is bij de temple en helpt de groep uiteindelijk ook om het lijk van Gundren te begraven.
 Ze blijkt ook onderdeel te zijn van de Harpers, een spionnen netwerk.
 
 De groep splitst op. De ene helft begraaft Gundren en de andere helft gaat goederen verkopen.
 
 Eerst naar de Miners Exchange zodat Xannax aan zijn crush Halia kan vragen of zei hem kan helpen met een Ruby of een date.
-Op beide vlakken moet ze Xannax afwijzen.
+Op beide vlakken moet ze <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> afwijzen.
 
 Bij de Lionshield Caster worden er nog verder wat goederen verkocht en met een goede buit komt de volledige groep weer bijeeen bij de Stonehill Inn.
 

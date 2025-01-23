@@ -9,6 +9,7 @@ import { Image } from 'astro:assets';
 import direwolf from '@assets/images/direwolf.png';
 import wizzardsRoom from '@assets/images/wizzardsroom.png';
 import droep from '@assets/images/droep.png';
+import CharacterPopper from '@components/CharacterPopper';
 
 ## Samenvatting
 
@@ -20,9 +21,9 @@ Droep blijkt een waardevolle ally te zijn die hun geheime ruimtes in de cave kan
 
 Droep brengt de groep naar de leider van deze groep onder Tresendar Mansion. De groep overlegt en besluit met de kennis die ze van Droep hebben over deze kamer hem van twee kanten te benaderen.
 
-Dit blijkt een goede keuze te zijn, want nadat de bugbear Xannax via de hoofdingang naar binnen gaat en een lege ruimte ziet, ziet de rest van de groep bij de geheime ingang een weg sluipende Wizzard.
+Dit blijkt een goede keuze te zijn, want nadat de bugbear <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> via de hoofdingang naar binnen gaat en een lege ruimte ziet, ziet de rest van de groep bij de geheime ingang een weg sluipende Wizzard.
 
-Een gevecht breekt uit en de wizzard teleport zo ver als hij kan om te vluchten. De nobele Ithil veranderd in een bloeddorstige dire wolf en samen met de rest van de groep wordt Wizzard Glasstaff gevangen genomen voor ondervraging.
+Een gevecht breekt uit en de wizzard teleport zo ver als hij kan om te vluchten. De nobele <CharacterPopper character="ithil" client:load>Ithil</CharacterPopper> veranderd in een bloeddorstige dire wolf en samen met de rest van de groep wordt Wizzard Glasstaff gevangen genomen voor ondervraging.
 
 <Image src={wizzardsRoom} alt="Wizzards room" />
 
@@ -37,7 +38,7 @@ Na dit hevige gevecht leert de groep ook dat de Dendrars hier in deze ondergrond
 
 De groep keert terug naar de Townhall waar Torbin en Sildar onder de indruk zijn van de groep zijn vangst en bevrijding van de Dendrars
 
-De groep gaat terug naar de Inn voor wat welverdiende rust, enkel lijken de twee grootste groepleden Fernir en Xannax een onrustige slaap te hebben...
+De groep gaat terug naar de Inn voor wat welverdiende rust, enkel lijken de twee grootste groepleden <CharacterPopper character="fernir" client:load>Fernir</CharacterPopper> en <CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> een onrustige slaap te hebben...
 
 ## Belangrijke namen en plaatsen
 

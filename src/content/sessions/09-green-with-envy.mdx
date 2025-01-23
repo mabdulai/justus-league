@@ -9,6 +9,7 @@ import { Image } from 'astro:assets';
 import burningBuilding from '@assets/images/burningbuilding.jpg';
 import cultist from '@assets/images/cultist.jpg';
 import audio from '@assets/audio/dragon.mp3';
+import CharacterPopper from '@components/CharacterPopper';
 
 ## Samenvatting
 
@@ -26,9 +27,9 @@ Hier vindt de groep een stel gemaskerde dragon cultists. Ook hebben zij meerdere
 
 De groep rekent af met de cultists en goblins, ze laten 1 cultist leven en nemen hem mee naar een nabije gebouw waar blijkbaar plantachtige wezens in verschuilen.
 
-Xannax heeft na z'n onschuldige eekhoorn moordaanslag de smaak goed te pakken en wilt de cultist in de fik steken binnen het gebouw vol met plantenwezens.
+<CharacterPopper character="xannax" client:load>Xannax</CharacterPopper> heeft na z'n onschuldige eekhoorn moordaanslag de smaak goed te pakken en wilt de cultist in de fik steken binnen het gebouw vol met plantenwezens.
 
-De groep (behalve Ithil) is het hier mee eens. En de cultist brandt fel. De rest van de plantenwezens worden gemakkelijk verslagen.
+De groep (behalve <CharacterPopper character="ithil" client:load>Ithil</CharacterPopper>) is het hier mee eens. En de cultist brandt fel. De rest van de plantenwezens worden gemakkelijk verslagen.
 
 <Image src={burningBuilding} alt="Burning building" />
 
@@ -44,7 +45,7 @@ Maar de draak vergeet het feit:
 
 Don't mess with The Justus league.
 
-Tijdens de epische battle met de draak die eerst een poison fog gebruikte en hierbij Ool bijna neerhaalde kon Nedsie zijn Stone rune gebruiken
+Tijdens de epische battle met de draak die eerst een poison fog gebruikte en hierbij <CharacterPopper character="ool" client:load>Ool</CharacterPopper> bijna neerhaalde kon <CharacterPopper character="nedsie" client:load>Nedsie</CharacterPopper> zijn Stone rune gebruiken
 om de draak in een dromerige staat te krijgen en de groep maakte gebruik van de kans om de draak goed aan te pakken.
 
 Bijna verslagen vlucht de draak terug naar zijn toren. Maar met een perfect geplaatste pijl wordt hij daarvan neergeschoten en heeft de groep hun eerste draak verslagen!

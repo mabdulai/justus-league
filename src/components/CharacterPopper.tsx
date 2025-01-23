@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { usePopper } from 'react-popper';
 import styles from '@styles/Popper.module.css';
-import { Image } from 'astro:assets';
 import fernir from '@assets/images/fernir.png';
 import ool from '@assets/images/ool.jpeg';
 import xannax from '@assets/images/xannax.png';
@@ -31,13 +30,13 @@ const getCharacterInfo = (character: CharacterType) => {
 const getCharacter = (character: CharacterType) => {
   const info = getCharacterInfo(character);
   return (
-    <Character name={info.name} klas={info.klas} race={info.race} level={3}>
-      <img src={info.image} alt={info.name} />
+    <Character name={info.name} klas={info.klas} race={info.race} level={4}>
+      <img src={info.image} alt={info.name} width="80%" />
     </Character>
   );
 };
 
-const Popper: React.FC<PopperProps> = ({ children, character }) => {
+const CharacterPopper: React.FC<PopperProps> = ({ children, character }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Popper state and positioning
@@ -81,4 +80,4 @@ const Popper: React.FC<PopperProps> = ({ children, character }) => {
   );
 };
 
-export default Popper;
+export default CharacterPopper;

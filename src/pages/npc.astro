@@ -13,31 +13,44 @@ import glasstaff from '@assets/images/glasstaff.png';
 import droop from '@assets/images/droop.png';
 import qelinne from '@assets/images/qelinne.png';
 import halia from '@assets/images/halia.png';
+import garelle from '@assets/images/garelle.png';
+import nard from '@assets/images/nard.png';
+import venomvang from '@assets/images/venomvang.png';
 
 
 const session1 = {
     text: 'Session 1',
-    link: '/justus-league/sessions/adventure-begins',
+    link: '/justus-league/sessions/01-adventure-begins',
 };
 
 const session3 = {
     text: 'Session 3',
-    link: '/justus-league/sessions/welcome-to-javelin',
+    link: '/justus-league/sessions/03-welcome-to-javelin',
 };
 
 const session4 = {
     text: 'Session 4',
-    link: '/justus-league/sessions/the-wanted-man',
+    link: '/justus-league/sessions/04-the-wanted-man',
 };
 
 const session6 = {
     text: 'Session 6',
-    link: '/justus-league/sessions/surrounded',
+    link: '/justus-league/sessions/06-surrounded',
 };
 
 const session7 = {
-    text: 'Session 6',
-    link: '/justus-league/sessions/victors',
+    text: 'Session 7',
+    link: '/justus-league/sessions/07-victors',
+};
+
+const session8 = {
+    text: 'Session 8',
+    link: '/justus-league/sessions/08-enter-thundertree',
+};
+
+const session13= {
+    text: 'Session 13',
+    link: '/justus-league/sessions/13-nards-haunted-mansion',
 };
 ---
 
@@ -136,6 +149,30 @@ const session7 = {
             name="Halia Thorton"
         >
             De mysterieuze leider van de Phandalin Miners Exchange
+        </NPC>
+        <NPC
+            picture={venomvang.src}
+            appearsIn={session8}
+            meetingPlace="Thundertree"
+            name="Venomfang"
+        >
+            De draak die onrust veroorzaakte over Thundertre
+        </NPC>
+        <NPC
+            picture={garelle.src}
+            appearsIn={session13}
+            meetingPlace="Shrine of Luck"
+            name="Garaele"
+        >
+            De verzorgster van de Shrine of Luck.
+        </NPC>
+        <NPC
+            picture={nard.src}
+            appearsIn={session13}
+            meetingPlace="Stonehill Inn"
+            name="Nard"
+        >
+            De dronkaard van Javelin die slachtoffer is van goblin pesterijen.
         </NPC>
     </div>
 </Layout>
