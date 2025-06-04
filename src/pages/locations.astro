@@ -9,11 +9,17 @@ import cragmawCave from '@assets/images/cragmaw-cave.jpg';
 import thundertree from '@assets/images/thundertree.png';
 import treePortal from '@assets/images/portal-tree.png';
 import cragmawCastle from '@assets/images/cragmaw-castle.png';
+import phandalin from '@assets/images/phandalin.png';
+import overworld from '@assets/images/overworld.jpg';
 import { Image } from 'astro:assets';
 ---
 
 <Layout title="Locations" description="Overzicht van al onze lokaties">
     <div class={styles.cards}></div>
+    <h2>Phandalin - Overview</h2>
+    <Image src={phandalin} alt="Phandalin Overview" />
+    <h2>Overworld</h2>
+    <Image src={overworld} alt="Overworld" />
     <h2>Cragmaw's Hideout</h2>
     <Image src={cragmawCave} alt="Cragmaw's Hideout" />
     <hr />
