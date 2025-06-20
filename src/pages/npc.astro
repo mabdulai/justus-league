@@ -17,6 +17,8 @@ import garelle from '@assets/images/garelle.png';
 import nard from '@assets/images/nard.png';
 import reidoth from '@assets/images/reidoth.png';
 import venomvang from '@assets/images/venomvang.png';
+import drow from '@assets/images/drow.jpg';
+import nundro from '@assets/images/nundro.webp';
 
 
 const session1 = {
@@ -52,6 +54,11 @@ const session8 = {
 const session13= {
     text: 'Session 13',
     link: '/justus-league/sessions/13-nards-haunted-mansion',
+};
+
+const session18= {
+    text: 'Session 18',
+    link: '/justus-league/sessions/18-finale',
 };
 ---
 
@@ -183,5 +190,21 @@ const session13= {
         >
             De dronkaard van Javelin die slachtoffer is van goblin pesterijen.
         </NPC>
+        <NPC
+        picture={drow.src}
+        appearsIn={session18}
+        meetingPlace="Wave Echo Cave"
+        name="Nezznar"
+    >
+        The Blackspider - Nezznar
+    </NPC>
+    <NPC
+        picture={nundro.src}
+        appearsIn={session18}
+        meetingPlace="Wave Echo Cave"
+        name="Nundro Rockseeker"
+    >
+        De broer van Gundren Rockseeker
+    </NPC>
     </div>
 </Layout>
