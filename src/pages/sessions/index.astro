@@ -6,8 +6,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const sessions = (await getCollection('sessions')).sort(
-    (a, b) => a.data.sessionDate.valueOf() - b.data.sessionDate.valueOf()
+    (a, b) => b.data.sessionDate.valueOf() - a.data.sessionDate.valueOf()
 );
+const season1Sessions = sessions.filter(post => (post.data.season ?? 1) === 1);
+const season2Sessions = sessions.filter(post => post.data.season === 2);
 ---
 
 <!DOCTYPE html>
@@ -34,10 +36,32 @@ const sessions = (await getCollection('sessions')).sort(
     <body>
         <Header />
         <main>
-            <section>
+            <section aria-labelledby="season-2">
+                <h2 id="season-2">Season 2</h2>
+                {
+                    season2Sessions.length > 0 ? (
+                        <ul>
+                            {
+                                season2Sessions.map(post => (
+                                    <li>
+                                        <FormattedDate date={post.data.sessionDate} />
+                                        <a href={`/justus-league/sessions/${post.slug}/`}>
+                                            {post.data.title}
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    ) : (
+                        <p>Coming soon.</p>
+                    )
+                }
+            </section>
+            <section aria-labelledby="season-1">
+                <h2 id="season-1">Season 1</h2>
                 <ul>
                     {
-                        sessions.map(post => (
+                        season1Sessions.map(post => (
                             <li>
                                 <FormattedDate date={post.data.sessionDate} />
                                 <a href={`/justus-league/sessions/${post.slug}/`}>

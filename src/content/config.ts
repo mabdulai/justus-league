@@ -7,6 +7,7 @@ const sessionsCollection = defineCollection({
         z.object({
             title: z.string(),
             description: z.string(),
+            season: z.number().int().min(1).default(1),
             // Transform string to Date object
             sessionDate: z
                 .string()
