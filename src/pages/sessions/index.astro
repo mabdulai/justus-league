@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const sessions = (await getCollection('sessions')).sort(
-    (a, b) => a.data.sessionDate.valueOf() - b.data.sessionDate.valueOf()
+    (a, b) => b.data.sessionDate.valueOf() - a.data.sessionDate.valueOf()
 );
 const season1Sessions = sessions.filter(post => (post.data.season ?? 1) === 1);
 const season2Sessions = sessions.filter(post => post.data.season === 2);
