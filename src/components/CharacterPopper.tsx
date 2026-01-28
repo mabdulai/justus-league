@@ -18,6 +18,7 @@ type CharacterType = 'fernir' | 'ool' | 'xannax' | 'ithil' | 'nedsie';
 const getCharacterInfo = (character: CharacterType) => {
   const characters = {
     fernir: { name: 'Fernir', race: 'Dragonborn', klas: 'Barbarian', image: fernir.src },
+    maldrak: { name: 'Maldrak', race: 'Dragonborn', klas: 'Paladin', image: fernir.src },
     ool: { name: 'Ool', race: 'Halfling', klas: 'Monk', image: ool.src },
     nedsie: { name: 'Nedsie', race: 'Halfling', klas: 'Fighter', image: nedsie.src },
     ithil: { name: 'Ithil', race: 'Elf', klas: 'Druid', image: ithil.src },
@@ -50,7 +51,7 @@ const CharacterPopper: React.FC<PopperProps> = ({ children, character }) => {
     {
       placement: 'top',
       modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
-    }
+    },
   );
 
   return (
