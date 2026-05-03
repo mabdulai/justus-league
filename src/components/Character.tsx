@@ -36,8 +36,12 @@ const Character: React.FC<CharacterProps> = ({
                 <div className={variant === 'former' ? `${styles.name} ${styles.nameFormer}` : styles.name}>
                     {name}
                 </div>
-                <div className={styles.desc}>
-                    {klas} · {race}
+                <div className={variant === 'former' ? `${styles.desc} ${styles.descFormer}` : styles.desc}>
+                    <span className={styles.descKlas}>{klas}</span>
+                    <span className={styles.descSep} aria-hidden="true">
+                        {' · '}
+                    </span>
+                    <span className={styles.descRace}>{race}</span>
                 </div>
                 {tagline ? <div className={styles.tagline}>{tagline}</div> : null}
             </div>
