@@ -1,74 +1,398 @@
+.section {
+    margin-bottom: 3rem;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.sectionTitle {
+    font-family: PirataOne-Regular, serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #b7e07e;
+    margin: 0 0 1rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid rgb(183 224 126 / 35%);
+}
+
+.sectionTitleFormer {
+    composes: sectionTitle;
+    color: rgb(218 223 232 / 55%);
+    border-bottom-color: rgb(218 223 232 / 18%);
+}
+
+.lede {
+    margin: 0 0 2rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: rgb(218 223 232 / 88%);
+}
+
 .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: 1.35rem;
+    align-items: start;
+}
+
+.formerRow {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 340px;
+    margin: 0 auto;
 }
 
 .card {
+    --card-accent: #b7e07e;
+    --card-depth: #120d10;
     display: flex;
     flex-direction: column;
-    width: calc(50% - 10px);
-    background: #231616;
-    border-radius: 3px;
-    box-shadow: 0 0 0 1px rgb(17 20 24 / 10%), 0 2px 4px rgb(17 20 24 / 20%),
-        0 8px 24px rgb(17 20 24 / 20%);
-    border: 6px solid #231616;
+    position: relative;
+    background: linear-gradient(165deg, rgb(45 28 30 / 95%) 0%, var(--card-depth) 100%);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgb(183 224 126 / 22%);
+    box-shadow:
+        0 0 0 1px rgb(0 0 0 / 35%),
+        0 12px 40px rgb(0 0 0 / 45%),
+        inset 0 1px 0 rgb(255 255 255 / 6%);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: rgb(183 224 126 / 45%);
+    box-shadow:
+        0 0 0 1px rgb(183 224 126 / 15%),
+        0 18px 48px rgb(0 0 0 / 55%),
+        inset 0 1px 0 rgb(255 255 255 / 8%);
+}
+
+.characterImage {
+    position: relative;
+    overflow: hidden;
+}
+
+.characterImage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgb(18 13 16 / 85%) 100%);
+    pointer-events: none;
 }
 
 .card img {
-    background-size: cover;
+    display: block;
+    width: 100%;
     aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0;
 }
 
 .border {
     position: relative;
-    height: 20px;
-    background-color: #b7e07e;
-    margin-top: -15px;
+    height: 18px;
+    background: linear-gradient(90deg, rgb(183 224 126 / 55%), rgb(183 224 126 / 90%), rgb(183 224 126 / 55%));
+    margin-top: -14px;
+}
+
+.borderFormer {
+    background: linear-gradient(
+        90deg,
+        rgb(140 150 165 / 25%),
+        rgb(140 150 165 / 45%),
+        rgb(140 150 165 / 25%)
+    );
 }
 
 .level {
+    --medallion-outer: #c9a227;
+    --medallion-dark: #2a1810;
+    --medallion-mid: #6b5438;
+    --medallion-bright: #e8d48a;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    color: #231616;
-    font-family: 'PirataOne-Regular';
-    font-size: 40px;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    background-color: #dadfe8;
-    border: 10px solid #b7e07e;
-    top: -30px;
-    left: 15px;
+    isolation: isolate;
+    height: 78px;
+    width: 78px;
+    top: -68px;
+    left: 12px;
     z-index: 2;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 35%));
+}
+
+.levelFace {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 0%, rgb(255 255 255 / 22%) 0%, transparent 42%),
+        radial-gradient(circle at 32% 22%, #fffef5 0%, #e4dfd4 42%, #a89888 78%, #4a3d34 100%);
+    box-shadow:
+        inset 0 0 0 1px rgb(255 255 255 / 45%),
+        inset 0 0 0 4px rgb(40 28 18 / 45%),
+        inset 0 6px 14px rgb(255 255 255 / 28%),
+        inset 0 -10px 18px rgb(0 0 0 / 22%),
+        0 5px 16px rgb(0 0 0 / 48%),
+        0 0 0 1px rgb(0 0 0 / 55%);
+}
+
+/* Segmented bronze sun-ring (medallion rim) */
+.level::before {
+    content: '';
+    position: absolute;
+    inset: -9px;
+    border-radius: 50%;
+    z-index: -1;
+    background: conic-gradient(
+        from -6deg,
+        var(--medallion-dark) 0deg,
+        var(--medallion-outer) 10deg,
+        var(--medallion-mid) 20deg,
+        var(--medallion-bright) 30deg,
+        var(--medallion-dark) 40deg,
+        var(--medallion-outer) 50deg,
+        var(--medallion-mid) 60deg,
+        var(--medallion-bright) 70deg,
+        var(--medallion-dark) 80deg,
+        var(--medallion-outer) 90deg,
+        var(--medallion-mid) 100deg,
+        var(--medallion-bright) 110deg,
+        var(--medallion-dark) 120deg,
+        var(--medallion-outer) 130deg,
+        var(--medallion-mid) 140deg,
+        var(--medallion-bright) 150deg,
+        var(--medallion-dark) 160deg,
+        var(--medallion-outer) 170deg,
+        var(--medallion-mid) 180deg,
+        var(--medallion-bright) 190deg,
+        var(--medallion-dark) 200deg,
+        var(--medallion-outer) 210deg,
+        var(--medallion-mid) 220deg,
+        var(--medallion-bright) 230deg,
+        var(--medallion-dark) 240deg,
+        var(--medallion-outer) 250deg,
+        var(--medallion-mid) 260deg,
+        var(--medallion-bright) 270deg,
+        var(--medallion-dark) 280deg,
+        var(--medallion-outer) 290deg,
+        var(--medallion-mid) 300deg,
+        var(--medallion-bright) 310deg,
+        var(--medallion-dark) 320deg,
+        var(--medallion-outer) 330deg,
+        var(--medallion-mid) 340deg,
+        var(--medallion-bright) 350deg,
+        var(--medallion-dark) 360deg
+    );
+    -webkit-mask: radial-gradient(
+        circle,
+        transparent 66%,
+        #fff 67%,
+        #fff 91%,
+        transparent 92%
+    );
+    mask: radial-gradient(circle, transparent 66%, #fff 67%, #fff 91%, transparent 92%);
+}
+
+/* Arcane inner band echoing party accent */
+.level::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    z-index: 0;
+    background: conic-gradient(
+        from 40deg,
+        rgb(183 224 126 / 0%) 0deg,
+        rgb(183 224 126 / 55%) 55deg,
+        rgb(183 224 126 / 0%) 110deg,
+        rgb(183 224 126 / 40%) 180deg,
+        rgb(183 224 126 / 0%) 240deg,
+        rgb(183 224 126 / 45%) 300deg,
+        rgb(183 224 126 / 0%) 360deg
+    );
+    -webkit-mask: radial-gradient(
+        circle,
+        transparent 72%,
+        #fff 73%,
+        #fff 84%,
+        transparent 85%
+    );
+    mask: radial-gradient(circle, transparent 72%, #fff 73%, #fff 84%, transparent 85%);
+    opacity: 0.85;
+    pointer-events: none;
+    mix-blend-mode: soft-light;
+}
+
+.levelDigit {
+    position: relative;
+    z-index: 2;
+    font-family: 'PirataOne-Regular', serif;
+    font-size: clamp(1.85rem, 5vw, 2.45rem);
+    line-height: 1;
+    color: #1a0f08;
+    text-shadow:
+        0 1px 0 rgb(255 255 255 / 55%),
+        0 -1px 0 rgb(0 0 0 / 18%),
+        0 0 12px rgb(201 162 39 / 35%);
+}
+
+.levelFormer {
+    height: 54px;
+    width: 54px;
+    top: -42px;
+    left: 11px;
+    filter: drop-shadow(0 1px 3px rgb(0 0 0 / 35%));
+}
+
+.levelFormer .levelFace {
+    background:
+        radial-gradient(circle at 50% 0%, rgb(255 255 255 / 12%) 0%, transparent 40%),
+        radial-gradient(circle at 32% 22%, #e8eaef 0%, #b8bcc6 45%, #6a6f7a 100%);
+    box-shadow:
+        inset 0 0 0 1px rgb(255 255 255 / 28%),
+        inset 0 0 0 3px rgb(30 32 38 / 40%),
+        inset 0 4px 10px rgb(255 255 255 / 15%),
+        inset 0 -6px 12px rgb(0 0 0 / 18%),
+        0 3px 12px rgb(0 0 0 / 4%);
+}
+
+.levelFormer::before {
+    inset: -5px;
+    background: conic-gradient(
+        from 0deg,
+        rgb(55 58 68) 0deg,
+        rgb(130 138 152) 12deg,
+        rgb(35 38 46) 24deg,
+        rgb(160 168 182) 36deg,
+        rgb(55 58 68) 48deg,
+        rgb(130 138 152) 60deg,
+        rgb(35 38 46) 72deg,
+        rgb(160 168 182) 84deg,
+        rgb(55 58 68) 96deg,
+        rgb(130 138 152) 108deg,
+        rgb(35 38 46) 120deg,
+        rgb(160 168 182) 132deg,
+        rgb(55 58 68) 144deg,
+        rgb(130 138 152) 156deg,
+        rgb(35 38 46) 168deg,
+        rgb(160 168 182) 180deg,
+        rgb(55 58 68) 192deg,
+        rgb(130 138 152) 204deg,
+        rgb(35 38 46) 216deg,
+        rgb(160 168 182) 228deg,
+        rgb(55 58 68) 240deg,
+        rgb(130 138 152) 252deg,
+        rgb(35 38 46) 264deg,
+        rgb(160 168 182) 276deg,
+        rgb(55 58 68) 288deg,
+        rgb(130 138 152) 300deg,
+        rgb(35 38 46) 312deg,
+        rgb(160 168 182) 324deg,
+        rgb(55 58 68) 336deg,
+        rgb(130 138 152) 348deg,
+        rgb(35 38 46) 360deg
+    );
+    -webkit-mask: radial-gradient(circle, transparent 62%, #fff 63%, #fff 88%, transparent 89%);
+    mask: radial-gradient(circle, transparent 62%, #fff 63%, #fff 88%, transparent 89%);
+}
+
+.levelFormer::after {
+    inset: -2px;
+    background: conic-gradient(
+        from 60deg,
+        rgb(183 224 126 / 0%) 0deg,
+        rgb(183 224 126 / 22%) 90deg,
+        rgb(183 224 126 / 0%) 180deg,
+        rgb(183 224 126 / 18%) 270deg,
+        rgb(183 224 126 / 0%) 360deg
+    );
+    -webkit-mask: radial-gradient(circle, transparent 70%, #fff 71%, #fff 82%, transparent 83%);
+    mask: radial-gradient(circle, transparent 70%, #fff 71%, #fff 82%, transparent 83%);
+    opacity: 0.5;
+}
+
+.levelFormer .levelDigit {
+    font-size: 1.45rem;
+    color: rgb(26 16 8 / 92%);
+    text-shadow:
+        0 1px 0 rgb(255 255 255 / 4%),
+        0 -1px 0 rgb(0 0 0 / 15%);
 }
 
 .info {
-    min-height: 200px;
+    min-height: 8.5rem;
     display: flex;
     flex-direction: column;
-    padding: 25px 15px;
+    padding: 1.35rem 1rem 1.25rem;
+    gap: 0.25rem;
 }
 
 .name {
-    font-family: PirataOne-Regular;
-    font-size: 70px;
-    line-height: 0.9;
-    margin-top: 10px;
+    font-family: PirataOne-Regular, serif;
+    font-size: clamp(2.25rem, 8vw, 3.15rem);
+    line-height: 0.95;
+    margin-top: 0.35rem;
+    text-shadow: 0 2px 18px rgb(0 0 0 / 55%);
+}
+
+.nameFormer {
+    font-size: clamp(1.65rem, 6vw, 2.1rem);
 }
 
 .desc {
     text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    color: rgb(218 223 232 / 72%);
+}
+
+.tagline {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: rgb(218 223 232 / 48%);
+    line-height: 1.35;
+}
+
+.cardFormer {
+    --card-accent: rgb(140 150 165 / 55%);
+    max-width: 280px;
+    opacity: 0.92;
+    filter: saturate(0.78);
+}
+
+.cardFormer:hover {
+    transform: translateY(-2px);
+    opacity: 0.98;
+    filter: saturate(0.88);
+}
+
+.cardFormer .characterImage::after {
+    background: linear-gradient(180deg, transparent 50%, rgb(12 10 14 / 92%) 100%);
+}
+
+.cardFormer img {
+    filter: grayscale(22%);
 }
 
 @media only screen and (max-width: 768px) {
-    .card {
-        width: 100%;
+    .cards {
+        grid-template-columns: 1fr;
     }
 }

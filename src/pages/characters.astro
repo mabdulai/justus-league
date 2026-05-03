@@ -3,34 +3,58 @@ import Layout from '../layouts/Characters.astro';
 import Character from '@components/Character';
 import styles from '@styles/Character.module.css';
 import { Image } from 'astro:assets';
+import maldrak from '@assets/images/maldrak.png';
 import fernir from '@assets/images/fernir.png';
 import ool from '@assets/images/ool.jpeg';
 import xannax from '@assets/images/xannax.png';
 import ithil from '@assets/images/ithil.png';
 import nedsie from '@assets/images/nedsie.jpg';
 
-const level = 4;
+const level = 5;
 ---
 
 <Layout title="Characters" description="Overzicht van alle avonturiers">
-    <div class={styles.cards}>
-        <Character name="Fernir" klas="Barbarian" race="DragonBorn" level={level}>
-            <Image src={fernir} alt="Fernir" />
-        </Character>
-        <Character name="Ithil" klas="Druid" race="Elf" level={level}>
-            <Image src={ithil} alt="Ithil" />
-        </Character>
+    <p class={styles.lede}>
+        De actieve groep op niveau {level}. Avonturiers die de campaign verlieten, staan hieronder apart vermeld.
+    </p>
 
-        <Character name="Ool" klas="Monk" race="Halfling" level={level}>
-            <Image src={ool} alt="Ool" />
-        </Character>
+    <section class={styles.section} aria-labelledby="party-heading">
+        <h2 id="party-heading" class={styles.sectionTitle}>De groep</h2>
+        <div class={styles.cards}>
+            <Character name="Maldrak" klas="Paladin" race="Dragonborn" level={level}>
+                <Image src={maldrak} alt="Maldrak" />
+            </Character>
+            <Character name="Ithil" klas="Druid" race="Elf" level={level}>
+                <Image src={ithil} alt="Ithil" />
+            </Character>
 
-        <Character name="XannaX" klas="Warlock" race="Changeling" level={level}>
-            <Image src={xannax} alt="Xannax" />
-        </Character>
+            <Character name="Ool" klas="Monk" race="Halfling" level={level}>
+                <Image src={ool} alt="Ool" />
+            </Character>
 
-        <Character name="Nedsie" klas="Fighter" race="Halfling" level={level}>
-            <Image src={nedsie} alt="Nedsie" />
-        </Character>
-    </div>
+            <Character name="XannaX" klas="Warlock" race="Changeling" level={level}>
+                <Image src={xannax} alt="Xannax" />
+            </Character>
+
+            <Character name="Nedsie" klas="Fighter" race="Halfling" level={level}>
+                <Image src={nedsie} alt="Nedsie" />
+            </Character>
+        </div>
+    </section>
+
+    <section class={styles.section} aria-labelledby="former-heading">
+        <h2 id="former-heading" class={styles.sectionTitleFormer}>Voormalige metgezellen</h2>
+        <div class={styles.formerRow}>
+            <Character
+                name="Fernir"
+                klas="Barbarian"
+                race="Dragonborn"
+                level={4}
+                variant="former"
+                tagline="Verliet de groep op niveau 4."
+            >
+                <Image src={fernir} alt="Fernir" />
+            </Character>
+        </div>
+    </section>
 </Layout>
