@@ -1,46 +1,193 @@
-.container {
+.npcList {
     display: flex;
-    margin-bottom: 40px;
-    box-shadow: 0 0 0 1px rgb(17 20 24 / 10%), 0 1px 1px rgb(17 20 24 / 20%);
-    border-radius: 4px;
-    background: #281819;
-    border: 1px solid #b7e07e;
-    border-bottom: 20px solid #b7e07e;
+    flex-direction: column;
+    gap: 1.35rem;
+    width: 100%;
 }
 
-.container:nth-child(odd) {
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+    min-height: min(22rem, 50vw);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgb(183 224 126 / 22%);
+    background: linear-gradient(165deg, rgb(45 28 30 / 95%) 0%, #120d10 100%);
+    box-shadow:
+        0 0 0 1px rgb(0 0 0 / 35%),
+        0 12px 40px rgb(0 0 0 / 45%),
+        inset 0 1px 0 rgb(255 255 255 / 6%);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.card:nth-child(even) {
     flex-direction: row-reverse;
 }
 
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgb(183 224 126 / 38%);
+    box-shadow:
+        0 0 0 1px rgb(183 224 126 / 12%),
+        0 18px 48px rgb(0 0 0 / 55%),
+        inset 0 1px 0 rgb(255 255 255 / 8%);
+}
+
 .image {
-    flex: 2;
+    flex: 0 0 min(42%, 22rem);
+    position: relative;
+    min-height: 16rem;
+    background: #1a1214;
 }
 
 .image img {
-    border-radius: 0;
-    float: left;
+    display: block;
     width: 100%;
-    min-height: 100%;
-    background-size: cover;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
-.info {
-    font-size: 20px;
-    padding: 30px;
-    flex: 3;
+.image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(18 13 16 / 55%) 0%, transparent 35%, transparent 65%, rgb(18 13 16 / 55%) 100%);
+    pointer-events: none;
+}
+
+.card:nth-child(even) .image::after {
+    background: linear-gradient(270deg, rgb(18 13 16 / 55%) 0%, transparent 35%, transparent 65%, rgb(18 13 16 / 55%) 100%);
+}
+
+.body {
+    flex: 1;
+    min-width: 0;
+    padding: 1.25rem 1.35rem 1.4rem;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    line-height: 1.45;
+    color: #dadfe8;
 }
 
 .name {
-    font-family: 'PirataOne-Regular';
-    font-size: 40px;
+    font-family: PirataOne-Regular, serif;
+    font-size: clamp(1.75rem, 4.5vw, 2.35rem);
+    line-height: 1.05;
+    margin: 0 0 0.75rem;
+    color: #fff;
+    text-shadow: 0 2px 14px rgb(0 0 0 / 55%);
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgb(183 224 126 / 22%);
+}
+
+.metaLine {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.65rem;
+    align-items: baseline;
+}
+
+.metaLabel {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b7e07e;
+}
+
+.metaLink {
+    color: #f2efe8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.metaLink:hover {
+    color: #fff;
+}
+
+.fields {
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.field {
+    margin: 0;
+}
+
+.fieldLabel {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(183 224 126 / 88%);
+    margin: 0 0 0.2rem;
+}
+
+.fieldValue {
+    margin: 0;
+    color: rgb(242 239 232 / 92%);
+}
+
+.notes {
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgb(218 223 232 / 12%);
+}
+
+.notesTitle {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-style: italic;
+    margin: 0 0 0.4rem;
+    color: rgb(183 224 126 / 75%);
+}
+
+.notesBody {
+    font-size: 0.95rem;
+    color: rgb(218 223 232 / 88%);
+}
+
+.notesBody hr {
+    border: none;
+    border-top: 1px solid rgb(218 223 232 / 15%);
+    margin: 0.65rem 0;
 }
 
 @media only screen and (max-width: 768px) {
-    .container {
+    .card,
+    .card:nth-child(even) {
         flex-direction: column;
     }
 
-    .container:nth-child(odd) {
-        flex-direction: column;
+    .image {
+        flex: none;
+        width: 100%;
+        min-height: 14rem;
+        max-height: 20rem;
+    }
+
+    .card:nth-child(even) .image::after {
+        background: linear-gradient(180deg, transparent 40%, rgb(18 13 16 / 75%) 100%);
+    }
+
+    .image::after {
+        background: linear-gradient(180deg, transparent 40%, rgb(18 13 16 / 75%) 100%);
     }
 }

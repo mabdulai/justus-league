@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/NPC.astro';
 import NPC from '../components/NPC';
-import styles from '../styles/Character.module.css';
+import listStyles from '../styles/NPC.module.css';
 import klarg from '@assets/images/klarg.jpg';
 import linene from '@assets/images/linene.png';
 import harbin from '@assets/images/harbin.png';
@@ -15,11 +15,13 @@ import qelinne from '@assets/images/qelinne.png';
 import halia from '@assets/images/halia.png';
 import garelle from '@assets/images/garelle.png';
 import nard from '@assets/images/nard.png';
-import reidoth from '@assets/images/reidoth.png';
+import ridoth from '@assets/images/ridoth.png';
 import venomvang from '@assets/images/venomvang.png';
 import drow from '@assets/images/drow.jpg';
 import nundro from '@assets/images/nundro.webp';
-
+import barthen from '@assets/images/barthen.png';
+import crawley2 from '@assets/images/crawley2.png';
+import roan from '@assets/images/roan.png';
 
 const session1 = {
     text: 'Session 1',
@@ -38,7 +40,7 @@ const session4 = {
 
 const session6 = {
     text: 'Session 6',
-    link: '/justus-league/sessions/06-surrounded',
+    link: '/justus-league/sessions/06-surrouned',
 };
 
 const session7 = {
@@ -51,160 +53,232 @@ const session8 = {
     link: '/justus-league/sessions/08-enter-thundertree',
 };
 
-const session13= {
+const session13 = {
     text: 'Session 13',
     link: '/justus-league/sessions/13-nards-haunted-mansion',
 };
 
-const session18= {
+const session18 = {
     text: 'Session 18',
     link: '/justus-league/sessions/18-finale',
+};
+
+const session19 = {
+    text: 'Session 19',
+    link: '/justus-league/sessions/19-epilogue',
 };
 ---
 
 <Layout title="NPC's" description="Overzicht van al onze ontmoetingen">
-    <div class={styles.cards}>
+    <div class={listStyles.npcList}>
         <NPC
             picture={gundren.src}
             appearsIn={session1}
             meetingPlace="Herberg in Neverwinter"
             name="Gundren Rockseeker"
-        >
-            Na een goede avond in de stam kroeg / herberg van de Justus league kwam
-            Gundren naar de groep toe met een voorstel. Dit voorstel zetten de groep op
-            hun avontuur. Over de dwerg zelf weet de groep nog niet veel.
-        </NPC>
+            rol="Dwergevonturier, opdrachtgever"
+            groepPlek="Clan Rockseeker / familie Rockseeker"
+            verhouding="Bondgenoot — gaf de missie naar Phandalin"
+            losseDraadjes="Persoonlijke achtergrond en precieze plannen voor de mijnen nog dun; eerste indruk vooral als contact in de herberg."
+        />
         <NPC
             picture={sildar.src}
             appearsIn={session1}
             meetingPlace="Cragmaw Cave"
             name="Sildar Hallwinter"
+            rol="Agent / bodyguard op reis met Gundren"
+            groepPlek="Lords' Alliance"
+            verhouding="Geallieerd — later door de groep uit de grot gehaald"
+            losseDraadjes="Volledige mandaat binnen de Alliance en politieke agenda in Phandalin nog niet uitgekristalliseerd."
         >
-            De groep weet enkel van Sildar dat hij op reis is met Gundren richting
-            Phanadil.
-            <hr />
-            De groep is er achter gekomen dat Sildar gezijeld werd in de Cragmaw Cave
+            <p>
+                De groep weet eerst vooral dat hij met Gundren onderweg was naar Phandalin. Later blijkt hij gevangen te
+                zitten in Cragmaw Cave.
+            </p>
         </NPC>
         <NPC
             picture={klarg.src}
             appearsIn={session1}
             meetingPlace="Cragmaw Cave"
             name="Klarg"
-        >
-            De beruchte leider van de goblins. De goblins zijn zo bang voor hem dat ze nog
-            liever dood gaan dan hem te verraden.
-        </NPC>
+            rol="Bugbear, leider van de Cragmaw-goblins"
+            groepPlek="Cragmaw-stam (Black Spider via stam)"
+            verhouding="Vijand — gevecht in de grot"
+            losseDraadjes="Hoe diep de band met de Black Spider liep; wat er na de clash met de groep van hem overbleef."
+        />
         <NPC
             picture={linene.src}
             appearsIn={session3}
-            meetingPlace="Shield Coster Trading Company"
+            meetingPlace="Lionshield Coster (Shield Coster)"
             name="Linene Graywind"
-        >
-            De eigenaar van de Shield Coster Trading Company
-        </NPC>
+            rol="Koopvrouw / leiding handelspost"
+            groepPlek="Lionshield Coster, Phandalin"
+            verhouding="Zakelijk contact — informatie en handel"
+            losseDraadjes="Langdurige politieke kleur van de Coster versus andere facties in het dorp."
+        />
         <NPC
             picture={trilena.src}
             appearsIn={session3}
             meetingPlace="Stonehill Inn"
             name="Trilena & Toblin Stonehill"
-        >
-            Het stel dat eigenaar is van de Stonehill Inn
-        </NPC>
+            rol="Herbergiers"
+            groepPlek="Stonehill Inn, Phandalin"
+            verhouding="Vriendelijk — dorpsanker en geruchtenbron"
+            losseDraadjes="Privéleven en eventuele spanningen met Townmaster of andere notabelen."
+        />
+        <NPC
+            picture={barthen.src}
+            appearsIn={session3}
+            meetingPlace="Barthen's Provisions, Phandalin"
+            name="Barthen"
+            rol="Handelaar, eigenaar van Barthen's Provisions"
+            groepPlek="Phandalin — handelspost aan de hoofdstraat"
+            verhouding="Zakelijk bondgenoot — betaalde de groep voor de karlading"
+            losseDraadjes="Later in Javelin opnieuw centraal; in sessie 23 wordt hij zelf onderdeel van het Mind Goblin-onheil bij zijn winkel."
+        />
         <NPC
             picture={harbin.src}
             appearsIn={session4}
             meetingPlace="Townhall"
             name="Harbin Wester"
-        >
-            De niet geliefde Townmaster Harbin van Phandalin
-        </NPC>
+            rol="Townmaster van Phandalin"
+            groepPlek="Bestuur Phandalin (townhall)"
+            verhouding="Lauw tot vijandig — weinig geliefd bij de groep"
+            losseDraadjes="Echte loyaliteiten en of hij misbruikt wordt door machten buiten het dorp."
+        />
+        <NPC
+            picture={crawley2.src}
+            appearsIn={session4}
+            meetingPlace="Townhall / gevangenis, Phandalin"
+            name="Miss Crawley"
+            rol="Assistent van de Townmaster, administratie"
+            groepPlek="Phandalin — townhall"
+            verhouding="Praktische bondgenoot in dorpszaken — later slachtoffer Mind Goblin-plot"
+            losseDraadjes="Seizoen 2 (Javelin): ziekte, cel naast Toblin, en het fatale incident met Acid Splash (sessie 22)."
+        />
         <NPC
             picture={glasstaff.src}
             appearsIn={session6}
             meetingPlace="Tresendar Manor"
             name='Iarno "Glasstaff" Albreck'
-        >
-            Lid van de Lord Alliance maar toch onder controle van de Black Spider
-        </NPC>
+            rol="Magiër, dubbelspion"
+            groepPlek="Lords' Alliance (formeel) — Black Spider (feitelijk)"
+            verhouding="Vijand — gevangen na Tresendar"
+            losseDraadjes="Hoe ver de corruptie reikte en wie hem nog steeds instructies gaf."
+        />
         <NPC
             picture={dendrars.src}
             appearsIn={session6}
             meetingPlace="Tresendar Manor"
             name="Mirna, Nilsa, Nars Dendrar"
-        >
-            De ontvoerde familie uit Phandalin.
-        </NPC>
+            rol="Dorpsfamilie, slachtoffers van ontvoering"
+            groepPlek="Phandalin (familie Dendrar)"
+            verhouding="Burgers — door de groep gered"
+            losseDraadjes="Langdurige trauma / veiligheid na terugkeer; eventuele nieuwe dreigingen richting hen."
+        />
         <NPC
             picture={droop.src}
             appearsIn={session6}
             meetingPlace="Tresendar Manor"
             name="Droop"
-        >
-            Het nieuwe trouwe hulpje van de Justus League
-        </NPC>
+            rol="Goblin, overlevende dienaar"
+            groepPlek="Cragmaw (los) — nu bij de groep"
+            verhouding="Hulpje — trouw richting Justus League"
+            losseDraadjes="Hoe betrouwbaar hij op lange termijn blijft; wat hij nog weet over de stam."
+        />
         <NPC
             picture={qelinne.src}
             appearsIn={session7}
             meetingPlace="Stonehill Inn"
-            name="Qelinne Alderleaf"
-        >
-            De bezorgde dorpsgenoot van de familie Dendrar
-        </NPC>
+            name="Qelline Alderleaf"
+            rol="Boerin, bezorgde buur"
+            groepPlek="Phandalin — boerderij / dorpsgemeenschap"
+            verhouding="Vriendelijk — contact rond familie Dendrar"
+            losseDraadjes="Emerald Enclave-kant van haar netwerk (Ridoth) en wat ze precies weet over dreigingen buiten Phandalin."
+        />
         <NPC
             picture={halia.src}
             appearsIn={session7}
-            meetingPlace="Stonehill Inn"
-            name="Halia Thorton"
-        >
-            De mysterieuze leider van de Phandalin Miners Exchange
-        </NPC>
+            meetingPlace="Phandalin Miners Exchange"
+            name="Halia Thornton"
+            rol="Leiding Miners Exchange"
+            groepPlek="Zhentarim-achtige handelsbelangen (Phandalin)"
+            verhouding="Neutraal tot uitdagend — zakelijke druk"
+            losseDraadjes="Volledige agenda: wie ze echt dient en welke deals ze met de groep wil sluiten."
+        />
         <NPC
             picture={venomvang.src}
             appearsIn={session8}
             meetingPlace="Thundertree"
             name="Venomfang"
-        >
-            De draak die onrust veroorzaakte over Thundertre
-        </NPC>
+            rol="Groene draak"
+            groepPlek="Ruïnes van Thundertree"
+            verhouding="Vijand — regionale dreiging"
+            losseDraadjes="Of de draak definitief verdreven is en wat haar schat of bondgenoten nog kunnen doen."
+        />
         <NPC
-            picture={reidoth.src}
+            picture={ridoth.src}
             appearsIn={session8}
-            meetingPlace="Reidoth's house"
-            name="Reidoth"
+            meetingPlace="Ridoths woning, Thundertree"
+            name="Ridoth"
+            rol="Vrouwelijke menselijke druid, heremiet en gids in het gebied rond Thundertree"
+            groepPlek="Emerald Enclave — leeft buiten de ruïnes achter een natuurlijke barrière in het bos"
+            verhouding="Bondgenoot — geeft de quest om Venomfang en zombies te klaren; belooft info over Cragmaw Castle; later onderdak en teleport via boom-portaal"
+            losseDraadjes="Het schimfiguur dat Ithil achter haar ziet bij het sluiten van het portaal (sessie 10); de betekenis van de metalen munt in haar huis (sessie 8); wat er met Droop gebeurt als vaste bewaker bij haar."
         >
-            De mysterieuze druid die de groep leid naar de draak Venomfang
+            <p>
+                De groep vindt haar via eekhoorns en een onzichtbare barrière in het woud. Ze legt uit dat Thundertree wordt geteisterd door de groene draak Venomfang en ondoden, en dat het dorp opschonen meer duidelijkheid over Cragmaw Castle oplevert. Na de draak keren ze terug: warme maaltijd, rust, en Ridoth biedt Ithil het Springwarden-schap van de Enclave aan — Ithil accepteert. De volgende ochtend opent ze een boom als kort portaal naar Cragmaw Castle; Droop blijft bij haar achter.
+            </p>
         </NPC>
         <NPC
             picture={garelle.src}
             appearsIn={session13}
             meetingPlace="Shrine of Luck"
             name="Garaele"
-        >
-            De verzorgster van de Shrine of Luck.
-        </NPC>
+            rol="Priesteres van Tymora"
+            groepPlek="Shrine of Luck, Phandalin"
+            verhouding="Bondgenoot — questgever / genezing"
+            losseDraadjes="Welke rituelen of contacten zij nog heeft buiten wat de groep zag."
+        />
         <NPC
             picture={nard.src}
             appearsIn={session13}
             meetingPlace="Stonehill Inn"
             name="Nard"
-        >
-            De dronkaard van Javelin die slachtoffer is van goblin pesterijen.
-        </NPC>
+            rol="Dorpsbewoner, vaste klant herberg"
+            groepPlek="Phandalin — Stonehill omgeving"
+            verhouding="Hulpbehoevend slachtoffer — goblingebrein"
+            losseDraadjes="Wat er precies met de goblingebrein-gebeurtenissen gebeurde na de sessies; langetermijnherstel."
+        />
         <NPC
-        picture={drow.src}
-        appearsIn={session18}
-        meetingPlace="Wave Echo Cave"
-        name="Nezznar"
-    >
-        The Blackspider - Nezznar
-    </NPC>
-    <NPC
-        picture={nundro.src}
-        appearsIn={session18}
-        meetingPlace="Wave Echo Cave"
-        name="Nundro Rockseeker"
-    >
-        De broer van Gundren Rockseeker
-    </NPC>
+            picture={drow.src}
+            appearsIn={session18}
+            meetingPlace="Wave Echo Cave"
+            name="Nezznar de Black Spider"
+            rol="Drow, antagonist achter de Black Spider"
+            groepPlek="Drow-netwerk — Wave Echo Cave"
+            verhouding="Vijand — eindbaas-arc"
+            losseDraadjes="Restanten van zijn organisatie en of alle doelen in de mijn echt gesloten zijn."
+        />
+        <NPC
+            picture={nundro.src}
+            appearsIn={session18}
+            meetingPlace="Wave Echo Cave"
+            name="Nundro Rockseeker"
+            rol="Dwerg, broer van Gundren"
+            groepPlek="Clan Rockseeker — gevangen in de mijn"
+            verhouding="Familie van bondgenoot — gered / herenigd"
+            losseDraadjes="Fysieke en emotionele staat na lange gevangenschap; rol in herstel van de forge."
+        />
+        <NPC
+            picture={roan.src}
+            appearsIn={session19}
+            meetingPlace="Onderweg naar Javelin (na Wave Echo Cave)"
+            name="Roan Daylith"
+            rol="Elf, Bladesong-strijder; recruteur"
+            groepPlek="Bladesong Assembly"
+            verhouding="Bondgenoot — sluit aan bij de reis naar Javelin"
+            losseDraadjes="Wil Nedsie voor de Assembly; in Javelin (o.a. sessie 24) gids bij de obelisk, driftglobe, en coacht Remove Curse tegen de Mind Goblin-ziekte."
+        />
     </div>
 </Layout>
