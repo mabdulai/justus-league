@@ -10,13 +10,32 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="page-npc">
     <head>
         <BaseHead title={title} description={description} />
         <style>
+            .page-npc body {
+                max-width: min(1080px, 94vw);
+            }
+
             .title {
-                font-size: 2em;
-                margin: 0.25em 0 0;
+                font-family: PirataOne-Regular, serif;
+                font-size: clamp(2rem, 5vw, 2.75rem);
+                margin: 0.15em 0 0;
+                letter-spacing: 0.02em;
+            }
+
+            hr {
+                border: none;
+                height: 1px;
+                margin: 1.25rem 0 1.75rem;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgb(183 224 126 / 35%) 20%,
+                    rgb(183 224 126 / 35%) 80%,
+                    transparent
+                );
             }
         </style>
     </head>

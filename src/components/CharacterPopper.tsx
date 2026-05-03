@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { usePopper } from 'react-popper';
 import styles from '@styles/Popper.module.css';
 import fernir from '@assets/images/fernir.png';
+import maldrak from '@assets/images/maldrak.png';
 import ool from '@assets/images/ool.jpeg';
 import xannax from '@assets/images/xannax.png';
 import ithil from '@assets/images/ithil.png';
@@ -13,12 +14,12 @@ interface PopperProps {
   character: CharacterType;
 }
 
-type CharacterType = 'fernir' | 'ool' | 'xannax' | 'ithil' | 'nedsie';
+type CharacterType = 'fernir' | 'maldrak' | 'ool' | 'xannax' | 'ithil' | 'nedsie';
 
 const getCharacterInfo = (character: CharacterType) => {
   const characters = {
     fernir: { name: 'Fernir', race: 'Dragonborn', klas: 'Barbarian', image: fernir.src },
-    maldrak: { name: 'Maldrak', race: 'Dragonborn', klas: 'Paladin', image: fernir.src },
+    maldrak: { name: 'Maldrak', race: 'Dragonborn', klas: 'Paladin', image: maldrak.src },
     ool: { name: 'Ool', race: 'Halfling', klas: 'Monk', image: ool.src },
     nedsie: { name: 'Nedsie', race: 'Halfling', klas: 'Fighter', image: nedsie.src },
     ithil: { name: 'Ithil', race: 'Elf', klas: 'Druid', image: ithil.src },
@@ -28,10 +29,19 @@ const getCharacterInfo = (character: CharacterType) => {
   return characters[character];
 };
 
+const levels: Record<CharacterType, number> = {
+  fernir: 4,
+  maldrak: 5,
+  ool: 5,
+  nedsie: 5,
+  ithil: 5,
+  xannax: 5,
+};
+
 const getCharacter = (character: CharacterType) => {
   const info = getCharacterInfo(character);
   return (
-    <Character name={info.name} klas={info.klas} race={info.race} level={4}>
+    <Character name={info.name} klas={info.klas} race={info.race} level={levels[character]}>
       <img src={info.image} alt={info.name} width="80%" />
     </Character>
   );

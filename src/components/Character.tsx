@@ -6,21 +6,44 @@ interface CharacterProps {
     klas: string;
     level: number;
     children: React.ReactNode;
+    variant?: 'default' | 'former';
+    tagline?: string;
 }
 
-const Character: React.FC<CharacterProps> = ({ name, race, klas, level, children }) => {
+const Character: React.FC<CharacterProps> = ({
+    name,
+    race,
+    klas,
+    level,
+    children,
+    variant = 'default',
+    tagline,
+}) => {
+    const cardClass =
+        variant === 'former' ? `${styles.card} ${styles.cardFormer}` : styles.card;
+
     return (
-        <div className={styles.card}>
+        <div className={cardClass}>
             <div className={styles.characterImage}>{children}</div>
 
-            <div className={styles.border}>
-                <div className={styles.level}>{level}</div>
+            <div className={variant === 'former' ? `${styles.border} ${styles.borderFormer}` : styles.border}>
+                <div className={variant === 'former' ? `${styles.level} ${styles.levelFormer}` : styles.level}>
+                    <span className={styles.levelFace} aria-hidden="true" />
+                    <span className={styles.levelDigit}>{level}</span>
+                </div>
             </div>
             <div className={styles.info}>
-                <div className={styles.name}>{name}</div>
-                <div className={styles.desc}>
-                    {klas} {race}
+                <div className={variant === 'former' ? `${styles.name} ${styles.nameFormer}` : styles.name}>
+                    {name}
                 </div>
+                <div className={variant === 'former' ? `${styles.desc} ${styles.descFormer}` : styles.desc}>
+                    <span className={styles.descKlas}>{klas}</span>
+                    <span className={styles.descSep} aria-hidden="true">
+                        {' · '}
+                    </span>
+                    <span className={styles.descRace}>{race}</span>
+                </div>
+                {tagline ? <div className={styles.tagline}>{tagline}</div> : null}
             </div>
         </div>
     );
