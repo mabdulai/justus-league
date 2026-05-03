@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/NPC.astro';
-import styles from '../styles/Character.module.css';
+import Location from '../components/Location';
+import listStyles from '../styles/NPC.module.css';
 import shieldCoster from '@assets/images/shield-coster.png';
 import barthens from '@assets/images/barthens.png';
 import stonehill from '@assets/images/stonehill.png';
@@ -11,32 +12,402 @@ import treePortal from '@assets/images/portal-tree.png';
 import cragmawCastle from '@assets/images/cragmaw-castle.png';
 import phandalin from '@assets/images/phandalin.png';
 import overworld from '@assets/images/overworld.jpg';
-import { Image } from 'astro:assets';
+import sleepingGiant from '@assets/images/sleepinggiant.png';
+import minersExchange from '@assets/images/miners-exchange.png';
+import townhall from '@assets/images/townhall.png';
+import ridothsWoning from '@assets/images/ridoths-woning.png';
+import waveEchoCave from '@assets/images/wave-echo-cave.webp';
+import javelinCover from '@assets/images/jav-cover.png';
+import harvestFest from '@assets/images/harvest.png';
+import obeliskImg from '@assets/images/obelisk.jpg';
+
+const session1 = {
+    text: 'Session 1',
+    link: '/justus-league/sessions/01-adventure-begins',
+};
+const session3 = {
+    text: 'Session 3',
+    link: '/justus-league/sessions/03-welcome-to-javelin',
+};
+const session4 = {
+    text: 'Session 4',
+    link: '/justus-league/sessions/04-the-wanted-man',
+};
+const session7 = {
+    text: 'Session 7',
+    link: '/justus-league/sessions/07-victors',
+};
+const session8 = {
+    text: 'Session 8',
+    link: '/justus-league/sessions/08-enter-thundertree',
+};
+const session10 = {
+    text: 'Session 10',
+    link: '/justus-league/sessions/10-tree-travel',
+};
+const session12 = {
+    text: 'Session 12',
+    link: '/justus-league/sessions/12-enter-the-cave',
+};
+const session13 = {
+    text: 'Session 13',
+    link: '/justus-league/sessions/13-nards-haunted-mansion',
+};
+const session14 = {
+    text: 'Session 14',
+    link: '/justus-league/sessions/14-this-sucks',
+};
+const session20 = {
+    text: 'Session 20',
+    link: '/justus-league/sessions/20---new-beginnings',
+};
+const session24 = {
+    text: 'Session 24',
+    link: '/justus-league/sessions/24-the-new-messiah',
+};
 ---
 
-<Layout title="Locations" description="Overzicht van al onze lokaties">
-    <div class={styles.cards}></div>
-    <h2>Phandalin - Overview</h2>
-    <Image src={phandalin} alt="Phandalin Overview" />
-    <h2>Overworld</h2>
-    <Image src={overworld} alt="Overworld" />
-    <h2>Cragmaw's Hideout</h2>
-    <Image src={cragmawCave} alt="Cragmaw's Hideout" />
-    <hr />
-    <h2>Shield Coster - Trading Company</h2>
-    <Image src={shieldCoster} alt="Shield Coster - Trading Company" />
-    <hr />
-    <h2>Barthens Provisions</h2>
-    <Image src={barthens} alt="Barthens Provisions" />
-    <hr />
-    <h2>Stonehill Inn</h2>
-    <Image src={stonehill} alt="Stonehill Inn" />
-    <h2>Tresendar Manor</h2>
-    <Image src={tresendar} alt="Tresendar Manor" />
-    <h2>Thundertree</h2>
-    <Image src={thundertree} alt="Thundertree" />
-    <h2>Cragmaw Castle</h2>
-    <Image src={cragmawCastle} alt="Cragmaw Castle" />
-    <h2>Tree Portal</h2>
-    <Image src={treePortal} alt="Tree Portal" />
+<Layout
+    title="Locaties"
+    description="Plekken uit de campaign — voor spelers om na te lezen"
+    contentWidth="wide"
+>
+    <p
+        style="margin: 0 0 1.35rem; max-width: 42rem; line-height: 1.5; color: rgb(218 223 232 / 90%); font-size: clamp(1rem, 2vw, 1.12rem);"
+    >
+        Korte gids bij plekken uit jullie sessies: waar het is, waarom het ertoe doet, en wat de Justus-League er
+        beleefd heeft. Eerst Phandalin en de route erheen; dan Wave Echo Cave; tot slot het vervolg in Phandalin
+        (Seizoen 2), inclusief jullie running gag om het dorp <em>Javelin</em> te noemen — géén aparte plek op de kaart.
+    </p>
+
+    <style>
+        .locSection {
+            font-family: PirataOne-Regular, serif;
+            font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+            margin: 2.25rem 0 1rem;
+            letter-spacing: 0.02em;
+            color: #fff;
+            text-shadow: 0 2px 12px rgb(0 0 0 / 45%);
+        }
+        .locSection:first-of-type {
+            margin-top: 0.5rem;
+        }
+    </style>
+
+    <h2 class="locSection">Phandalin &amp; de route erheen</h2>
+    <div class={listStyles.npcList}>
+        <Location
+            picture={phandalin.src}
+            appearsIn={session3}
+            regio="Sword Coast, ten oosten van Neverwinter"
+            name="Phandalin"
+            soort="Nederzetting — voormalige mijnbouwgemeente"
+            plotRol="Het dorp waar de kar met goederen naartoe moest; centrum voor Redbrands-intriges, townhall en latere rust."
+            herinneringen="Eerste echte ‘thuisbasis’ na de wildernis: Lionshield Coster, Barthen’s, Stonehill Inn, confrontatie met Redbrand Ruffians en Townmaster Harbin."
+            openVragen="Hoe Phandalin zich herstelt na de Redbrands; welke facties blijven spelen (Miners Exchange, Emerald-contacten)."
+        >
+            <p>
+                In sessie 3 komt de groep aan met Sildar, levert gestolen Lionshield-goederen terug bij Linene en
+                voltooit de opdracht bij Barthen’s Provisions. Ze hoort over de Redbrands en de Sleeping Giant, slaapt
+                in de Stonehill Inn en veegt de straat met de eerste ruffians op — met hulp van ridder Sildar.
+            </p>
+        </Location>
+
+        <Location
+            picture={overworld.src}
+            appearsIn={session1}
+            regio="Triboar Trail en omringende wildernis"
+            name="De weg naar Phandalin"
+            soort="Reisroute / wildernis"
+            plotRol="Het eerste stuk wereld waarin de groep samen optrekt — de kar, de goblin-lokaas en het spoor naar de schuilplaats."
+            herinneringen="Ambush bij dode paarden, eerste serieuze gevechten, en het volgen van het goblinspoor richting de rivier en de grot."
+            openVragen="Wat er verder langs de trail nog schuilt buiten de gebaande paden."
+        >
+            <p>
+                Sessie 1: na Gundrens opdracht rijdt de Justus League over de Triboar Trail. Twee dode paarden lokken
+                vier goblins in een hinderlaag; daarna zoekt de groep het spoor op en vindt de ingang van Cragmaw’s
+                schuilplaats bij het water.
+            </p>
+        </Location>
+
+        <Location
+            picture={cragmawCave.src}
+            appearsIn={session1}
+            regio="Bossen ten zuidoosten van de Triboar Trail"
+            name="Cragmaw-schuilplaats"
+            soort="Goblinhol — grotcomplex met valstrikken"
+            plotRol="Eerste grote kluis: goblins, wolven, Klarg; bevrijding van Sildar; eerste hints naar Cragmaw Castle en Gundrens kaart."
+            herinneringen="Wolvenruimte, dam en waterval, hangbrug-sniper, slaapruimte met gegijzelde Sildar, gevecht met Klarg en Ripper, jade kikker uit Klargs schat."
+            openVragen="Restanten van de stam; of er nog verborgen gangen of boodschappen aan de Black Spider zijn achtergebleven."
+        >
+            <p>
+                Sessie 1–2: vloedgolf en hereniging met Fernir, goederenstapel met blauw leeuwenlogo (Lionshield),
+                Klarg naar beneden gewerkt, daarna de goblins bij het kampvuur — met Klargs hoofd als overtuiging —
+                tot Sildar bewusteloos maar veilig de grot verlaat.
+            </p>
+        </Location>
+
+        <Location
+            picture={shieldCoster.src}
+            appearsIn={session3}
+            regio="Phandalin — hoofdstraat"
+            name="Lionshield Coster"
+            soort="Handelspost en wapenopslag"
+            plotRol="Plek waar gestolen goederen uit de grot thuishoren; Linene als contact en beloning."
+            herinneringen="De groep herkent het leeuwenlogo van de kar en levert de lading terug; Linene Graywind betaalt en waardeert de actie."
+            openVragen="Politieke spanning tussen Coster en andere Phandalin-facties op langere termijn."
+        >
+            <p>
+                Sessie 3: na aankomst in Phandalin is dit het eerste adres — de gestolen spullen gaan terug naar
+                Linene, en de groep krijgt erkenning (en goud) voor het werk.
+            </p>
+        </Location>
+
+        <Location
+            picture={barthens.src}
+            appearsIn={session3}
+            regio="Phandalin"
+            name="Barthen’s Provisions"
+            soort="Handel in levensmiddelen en uitrusting"
+            plotRol="Bestemming van Gundrens kar; afronden van de oorspronkelijke opdracht."
+            herinneringen="De groep brengt Gundrens goederen en ontvangt de beloning voor het transport."
+            openVragen="In Phandalin (Seizoen 2) speelt Barthen’s opnieuw een hoofdrol bij het Mind Goblin-drama (sessie 23)."
+        >
+            <p>
+                Sessie 3: naast de Coster is dit de tweede logische stop: de karlading is voor Barthen’s, en daarmee
+                is de eerste ‘job’ van Gundren formeel afgerond.
+            </p>
+        </Location>
+
+        <Location
+            picture={stonehill.src}
+            appearsIn={session3}
+            regio="Phandalin — centrum"
+            name="Stonehill Inn"
+            soort="Herberg en dorpsontmoetingsplek"
+            plotRol="Rust, geruchten en emotionele ademruimte tussen confrontaties met Redbrands en Tresendar."
+            herinneringen="Trilena & Toblin als gastheren; goede nachtrust voor de confrontatie met Harbin en de ruffians; later opnieuw anker na Tresendar."
+            openVragen="Welke roddels circuleren na elke crisis — en wie durft er nog binnen te komen als de spanning oploopt."
+        >
+            <p>
+                Sessie 3: hier slaapt de groep na het eerste bezoek aan Phandalin en voor de clash met de Redbrands op
+                straat. De inn blijft door het seizoen een vaste plek om bij te komen.
+            </p>
+        </Location>
+
+        <Location
+            picture={minersExchange.src}
+            appearsIn={session7}
+            regio="Phandalin — hoofdstraat"
+            name="Phandalin Miners Exchange"
+            soort="Handelskantoor — Halia Thornton"
+            plotRol="Zhentarim-achtige handel en inlichtingen; landkaart naar het gebied buiten Phandalin; later Xannax’ robijn-zoektocht."
+            herinneringen="Sessie 7: informatie ruilen over Iarno/Glasstaff en schuilplaats, beloning met regionale kaart. Sessie 13: Xannax probeert Halia voor robijn of date — geen succes."
+            openVragen="Hoe diep Halia’s netwerk reikt en wie ze buiten het dorp nog vertrouwt."
+        >
+            <p>
+                Na Tresendar en het ontbijt bij de Alderleafs stapt de groep de Miners Exchange binnen voor een tweede
+                gesprek met Halia — in ruil voor wat ze over de kelder en Iarno weten, krijgen ze de kaart die richting
+                Thundertree helpt plannen.
+            </p>
+        </Location>
+
+        <Location
+            picture={sleepingGiant.src}
+            appearsIn={session4}
+            regio="Phandalin — rand van het dorp"
+            name="The Sleeping Giant"
+            soort="Kroeg — feitelijk thuisbasis van de Redbrands"
+            plotRol="Geruchtencentrum van de ruffians; eerste verkenning vóór de bestorming van Tresendar Manor."
+            herinneringen="Ool sluipt rond: de bar blijkt leeg, met een notitie ‘Zoek de andere Dendrars’ als sinistere aanwijzing."
+            openVragen="Of er ooit weer normale klanten komen; wat er met de reputatie van de plek gebeurt na de Redbrands."
+        >
+            <p>
+                Sessie 4: de groep weet uit sessie 3 dat de Redbrands hier hangen. Voor de grote uitruiming van
+                Tresendar willen ze eerst poolshoogte nemen — en vinden vooral stilte en een dreigende boodschap.
+            </p>
+        </Location>
+
+        <Location
+            picture={townhall.src}
+            appearsIn={session4}
+            regio="Phandalin — centrum"
+            name="Townhall"
+            soort="Bestuursgebouw met cellen"
+            plotRol="Harbin Wester als townmaster; poster Dendrar; gevangen Redbrand; later cel voor Miss Crawley en Toblin (Mind Goblin); festival- en gevechtsaankondigingen."
+            herinneringen="Sessie 4: chaos met Harbin en de ingesloten ruffian. Sessie 6: terugkeer met Glasstaff en goed nieuws voor Sildar. Seizoen 2: zieken gescheiden op cellen, Nedsie’s Acid Splash-tragedie, Townhall-bijeenkomst na Tresendar-strijd (sessie 24)."
+            openVragen="Of Harbin ooit echt grip krijgt op wat er in zijn gebouw gebeurt; wat er juridisch volgt op de cellen na de crises."
+        >
+            <p>
+                Sessie 4: na de Redbrands levert de Townhall vooral verwarring en een poster over de vermiste Dendrars.
+                Later wordt het hart van dorpsbestuur én van tijdelijke gevangenschap — tot de Mind Goblin-lijn de
+                gangen vulde met zieken en spanning.
+            </p>
+        </Location>
+
+        <Location
+            picture={tresendar.src}
+            appearsIn={session4}
+            regio="Phandalin — ruïne ten zuiden van het dorp"
+            name="Tresendar Manor"
+            soort="Verlaten landgoed met uitgebreide kelder en geheime basis"
+            plotRol="Hoofdkwartier Redbrands / Glasstaff; crypt, valkuilen, wapenkamer; Dendrars en Black Spider-intrige."
+            herinneringen="Lege bovenverdieping, crypt met sarcofagen en skeletten, Ithil als spin in de wapenkamer, Ool hoort stemmen; later Droop, Glasstaff, bevrijding Dendrars."
+            openVragen="De vermiste vader Dendrar; wat de stemmen en magie in de kelder nog verbergen; naschokken voor de familie."
+        >
+            <p>
+                Sessie 4–6: van eerste verkenning en cryptgevechten tot de valstrikken, de wizzard die teleporteert,
+                Ithil als dire wolf, en het redden van (een deel van) de familie Dendrar. Glasstaff spreekt over de
+                Black Spider en de Forge of Spells in Wave Echo Cave.
+            </p>
+        </Location>
+
+        <Location
+            picture={ridothsWoning.src}
+            appearsIn={session8}
+            regio="Woud ten noorden van Phandalin — buiten de ruïnes van Thundertree"
+            name="Ridoths woning"
+            soort="Druidische herberg achter een natuurlijke barrière"
+            plotRol="Eerste ontmoeting met Ridoth; quest om Venomfang en zombies te klaren; metalen munt; later rust, Springwarden-gesprek en boomportaal."
+            herinneringen="Eekhoorns leiden de groep; onzichtbare bosbarrière; briefing over Thundertree en Cragmaw Castle; terugkeer na de draak voor maaltijd, Ithils Springwarden-aanbod en Droop die achterblijft."
+            openVragen="De munt; de schim bij het sluiten van het portaal (sessie 10); wat Ridoth precies voelt van de barrière als de groep weer vertrekt."
+        >
+            <p>
+                Sessie 8: na het bizarre eekhoorn-pad en door de barrière komt de groep bij haar huis — argwaan rond
+                de mysterieuze dame op de os lost zich op in een duidelijke opdracht. Sessie 10: dezelfde plek wordt
+                veilige haven vóór het portaal naar Cragmaw Castle.
+            </p>
+        </Location>
+
+        <Location
+            picture={thundertree.src}
+            appearsIn={session8}
+            regio="Noordelijk van Phandalin — verwoeste nederzetting"
+            name="Thundertree"
+            soort="Ruïnestad in het woud — draak en ondoden"
+            plotRol="Quest van Ridoth: Venomfang en zombies; metaal munt in haar huis; vuurtoren als draaknest; cultisten en plantenwezens."
+            herinneringen="Eekhoorns en barrière, zombies en smederij, cultisten in een lichtend pand, strijd bij de keep, vuurtoren en uiteindelijk Venomfang — met instortende toren en zwarte steen zoals onder Tresendar."
+            openVragen="De metalen munt; resterende cultisten; wat de mist en de steen nog verbinden met grotere machten."
+        >
+            <p>
+                Sessie 8–9: reis met de mysterieuze dame op de os, eekhoorn-puzzel, Ridoths briefing, huizen-tot-huizen
+                door ruïnes, ijskoude crits van Ithil, cultisten en brandend gebouw, rust bij de keep, en de
+                confrontatie met de groene draak bij de vuurtoren.
+            </p>
+        </Location>
+
+        <Location
+            picture={treePortal.src}
+            appearsIn={session10}
+            regio="Bos bij Ridoths woning, Thundertree-omgeving"
+            name="Het boomportaal"
+            soort="Kort levend teleportatieportaal (natuurmagie)"
+            plotRol="Brug naar Cragmaw Castle: Ridoth opent de boom, de groep stapt door — Ithil ziet een schim achter Ridoth; Droop blijft achter."
+            herinneringen="Rust en maaltijd bij Ridoth, Springwarden-aanbod voor Ithil, ‘geleende’ magische pijl, ochtendrit door het portaal rechtstreeks naar het kasteel."
+            openVragen="Wie of wat die schim was; hoe stabiel dit soort portalen is; wat Ridoth en Droop intussen zien aan de Thundertree-kant."
+        >
+            <p>
+                Sessie 10: na de drakendood volgt loot en rook-achtervolging, dan onderdak bij Ridoth. De volgende
+                ochtend leidt ze jullie naar de boom — een kort venster om naar Cragmaw Castle te springen.
+            </p>
+        </Location>
+
+        <Location
+            picture={cragmawCastle.src}
+            appearsIn={session10}
+            regio="Wildernis — stamhoofdkwartier Cragmaw"
+            name="Cragmaw Castle"
+            soort="Vervallen kasteel — goblins, hobgoblins, King Grol"
+            plotRol="Doel na Sildars tip en Ridoths portaal: Gundren, Nundro, de kaart, en het drama met King Grol."
+            herinneringen="Sluipen en massale gevechten (sessie 10), kapel met Jagged Tooth-cultus, wapenkamers, King Grol en dire wolven — Gundren sterft; dwerg steelt de kaart."
+            openVragen="De ontsnappende dwerg met de kaart; rouw en gevolgen voor de Rockseekers; wat er nog in het kasteel verborgen lag."
+        >
+            <p>
+                Sessie 10–11: van de eerste binnendringing tot diep in het complex — valstrikken, Grig, religieuze
+                goblins rond het gebroken standbeeld, zware gevechten waarin onder meer Ool bijna valt, tot de
+                confrontatie met King Grol en het tragische einde voor Gundren terwijl een andere dwerg met de kaart
+                verdwijnt.
+            </p>
+        </Location>
+    </div>
+
+    <h2 class="locSection">Wave Echo Cave</h2>
+    <div class={listStyles.npcList}>
+        <Location
+            picture={waveEchoCave.src}
+            appearsIn={session14}
+            regio="Wildernis — verborgen ingang nabij Phandalin"
+            name="Wave Echo Cave"
+            soort="Ondergronds complex — Forge of Spells, oude mijnlegende"
+            plotRol="Einddoel van de Black Spider; mythe van Lightbringer en de forge; confrontatie met Nezznar, Lolth en redding van Nundro."
+            herinneringen="Dode avonturiers en Thardin, stirges, gasbollen-ruimte, Bob de spectator, magische forge en vuurballen, waves met octopus, darkness-gevechten, finalezaal met standbeeld — robijn, instorting, epiloog met slang en terugreis."
+            openVragen="Wat Nundro met de mijn doet na jullie deal; of alle gevaren in de diepte echt weg zijn."
+        >
+            <p>
+                Sessie 12–19: van de kaart op de dobbelganger en Gundrens lijk tot diep in de grot — Grell en tentakels,
+                goblinlijken bij de ingang, overstroomde kampeerplek met Thundren in het web, stirges, zombies, de
+                mythe opnieuw lezen, en steeds diepere lagen met plantwezens, wraiths, forge, bugbears in het donker,
+                tot de Black Spider, Lolth, drider-Nezznar en het redden van Nundro. In de epiloog ruimen jullie de rest
+                van de cave, vechten tegen een reuzenlang en een gelatinous cube, en laat Nundro de Forge of Spells zien
+                voordat jullie met Thardin op Ithils paard terug naar Phandalin trekken — onderweg ontmoeten jullie Roan.
+            </p>
+        </Location>
+    </div>
+
+    <h2 class="locSection">Phandalin — Seizoen 2 (&amp; ‘Javelin’)</h2>
+    <div class={listStyles.npcList}>
+        <Location
+            picture={javelinCover.src}
+            appearsIn={session13}
+            regio="Phandalin — hetzelfde dorp als hierboven"
+            name="‘Javelin’ (groepsnaam)"
+            soort="Geen tweede nederzetting — een misverstaan ‘Phandalin’ werd een running gag; zo noemen jullie het dorp in de tafelpraat"
+            plotRol="Deze kaart staat voor hetzelfde Phandalin na de mijn: sessies gebruiken soms de grapnaam; verhaal, gebouwen en NPC’s zijn die van het dorp uit het eerste arc."
+            herinneringen="Zodra de groep ‘Javelin’ zegt, bedoelt ze gewoon Phandalin: Stonehill, Lionshield, Miners Exchange, Temple of Luck, townhall — met Seizoen 2-intriges (Mind Goblin, festival, obelisk)."
+            openVragen="Of iemand buiten de party ooit doorheeft waarom jullie zo gniffelen bij die naam."
+        >
+            <p>
+                Sessie 13: terug in het dorp voor handel en robijn-zoektocht; Gundrens begrafenis via Garaele bij de
+                Temple of Luck; Halia wijst Xannax af; Nard stuurt jullie naar zijn ‘spookhuis’ vol psychic goblins.
+                Sessie 19–20: terugkeer vanuit de cave, lening aan Nundro, Harvest Festival-drukte, deals bij
+                Lionshield, slapen bij Quelline. Later: townhall met Miss Crawley en Toblin, Strumming Sty, markt,
+                concert, en het Mind Goblin-onderzoek (sessies 21–23) — allemaal nog steeds hetzelfde Phandalin.
+            </p>
+        </Location>
+
+        <Location
+            picture={harvestFest.src}
+            appearsIn={session20}
+            regio="Phandalin — dorpsplein en hoofdpodium"
+            name="Harvest Festival"
+            soort="Jaarlijks feest — markt, podium, kleine ring"
+            plotRol="De groep ontspant, shopt en loopt het Mind Goblin-drama in — van gezelligheid naar horror rond Miss Crawley en Toblin."
+            herinneringen="Volle Stonehill, hoofdpodium, kleine boksring, magische kraampjes, vuurwerk, Strumming Sty — en de eerste tekenen dat iets het dorp besmet."
+            openVragen="Wat het festival nog verborgen heeft achtergelaten in de massa; of er slachtoffers zijn die nooit gezien zijn."
+        >
+            <p>
+                Sessie 20: Maldrak wordt ingelicht; Nundro vraagt een lening; het dromt van mensen voor het oogstfeest;
+                inkopen, deals bij Lionshield, Townhall met afwezige Miss Crawley, optreden van Strumming Sty — en een
+                kleine ring waar later Maldrak zal vechten (sessie 21).
+            </p>
+        </Location>
+
+        <Location
+            picture={obeliskImg.src}
+            appearsIn={session24}
+            regio="Phandalin — keldercomplex onder Tresendar Manor"
+            name="Tresendar — obelisk &amp; diepe kelder"
+            soort="Ondergrondse ruimte — inktzwarte obelisk, sterrenpatronen, goblin-instructies"
+            plotRol="Seizoen 2: bron van onheil na Mind Goblins — obelisk, staf, thundermap, en de band met wat boven het dorp hangt."
+            herinneringen="Bouwvakker dood op de bovenverdieping; geheime ingang met Roan; Ool wrikt de staf los; driftglobe ‘LEON’; symbolen en map voor goblin-gravers; resonantie tussen staf en obelisk; townhall-bijeenkomst en Messias-plot."
+            openVragen="De taal op de obelisk; wat de openingen in het plafond betekenen; wie de staf achterliet en wat de volgende stap van het kwaad is."
+        >
+            <p>
+                Sessie 24: terug naar Tresendar na eerdere gevechten; Wand of Secrets levert niets nieuws op de
+                bovenverdieping, maar achter de Manor wacht de kelder met de obelisk en de vastgespieerde goblin.
+                Roan documenteert; Ithil en Maldrak houden haar in de gaten; Xannax en Nedsie vinden goblin-instructies
+                en een thundermap; de staf trekt naar de obelisk alsof er een ritueel wacht.
+            </p>
+        </Location>
+    </div>
 </Layout>
