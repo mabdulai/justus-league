@@ -110,7 +110,7 @@ body {
     font-size: 24px;
     margin: auto;
     padding: 20px;
-    max-width: 70ch;
+    max-width: min(1080px, 94vw);
     text-align: left;
     word-wrap: break-word;
     overflow-wrap: break-word;

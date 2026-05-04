@@ -2,60 +2,481 @@
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import phandelver from '@assets/images/lmopbg.png';
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
 import { Image } from 'astro:assets';
+import heroS2Wide from '@assets/images/justus-league-s2-hero-wide.png';
+import phandelver from '@assets/images/lmopbg.png';
+
+const sessions = await getCollection('sessions');
+const season2Sessions = sessions
+    .filter(post => post.data.season === 2)
+    .sort((a, b) => b.data.sessionDate.valueOf() - a.data.sessionDate.valueOf());
+const latestS2 = season2Sessions[0]!;
+const latestSessionHref = `/justus-league/sessions/${latestS2.slug}/`;
+
+const og = await getImage({ src: heroS2Wide, width: 1200 });
+const ogImageUrl = new URL(og.src, Astro.site).href;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <BaseHead
+            title={SITE_TITLE}
+            description={SITE_DESCRIPTION}
+            image={ogImageUrl}
+        />
     </head>
     <body>
-        <Header title={SITE_TITLE} />
-        <main>
-            <h1>Justus League</h1>
-            <p class="intro">Welkom op de adventure log van de Justus league.</p>
-            <div class="image-container">
-                <Image src={phandelver} alt="Lost Mines of Phandelver" />
-            </div>
-            <hr />
-            <p>
-                De Justus league is een onwaarschijnlijke groep avonturiers die bij elkaar
-                zijn gekomen op een missie om de verloren mijnen van Phandelver te
-                ontdekken.
-            </p>
-            <p>
-                De groep bestaat uit een Halfling Monk "Ool", Halfling Fighter "Nedsie
-                Evermind", Elf Druid "Ithil", Changling Warlock "XannaX Moonshadow" en
-                Dragonborn Barbarian "Fernir". Die nu vervangen is door de Dragonborn Paladin "Maldrak".
-            </p>
-            <p>
-                Samen trotseren ze gevaarlijke obstakels en overwinnen ze uitdagende
-                beproevingen, hopend op de dag dat ze de mythische mijnen zullen ontdekken
-                en hun lot zullen vervullen.
-            </p>
-        </main>
+        <div class="fantasy-page">
+            <Header />
+            <main>
+                <section class="fantasy-hero" aria-labelledby="home-hero-heading">
+                    <div class="fantasy-hero__ornament fantasy-hero__ornament--top" aria-hidden="true"></div>
+                    <p class="fantasy-eyebrow fantasy-hero__eyebrow">— Seizoen 2 —</p>
+                    <h1 id="home-hero-heading">Justus League</h1>
+                    <div class="fantasy-hero__frame">
+                        <div class="fantasy-hero__frame-inner">
+                            <Image
+                                src={heroS2Wide}
+                                alt="De Justus League, seizoen 2 — de volledige party in één beeld"
+                                class="fantasy-hero__cover"
+                                widths={[800, 1080, 1200, 1600, 1920]}
+                                sizes="(max-width: 768px) 100vw, min(1080px, 94vw)"
+                            />
+                        </div>
+                    </div>
+                    <h2 id="home-session-title" class="fantasy-hero__latest">
+                        {latestS2.data.title}
+                    </h2>
+                    <div class="fantasy-hero__actions">
+                        <a href={latestSessionHref} class="fantasy-btn fantasy-btn--primary"
+                            >Laatste avontuur</a
+                        >
+                    </div>
+                    <div class="fantasy-hero__ornament fantasy-hero__ornament--bottom" aria-hidden="true"
+                    ></div>
+                </section>
+
+                <section class="fantasy-scroll" aria-labelledby="home-intro-heading">
+                    <div class="fantasy-scroll__edge fantasy-scroll__edge--top" aria-hidden="true"></div>
+                    <h2 id="home-intro-heading" class="visually-hidden">Over dit logboek</h2>
+                    <p>
+                        Na het eerste seizoen begint een nieuw hoofdstuk: het logboek volgt de league
+                        verder door de Forgotten Realms—nieuwe gevaren, dezelfde onwaarschijnlijke
+                        helden, en het verhaal dat zich blijft uitbreiden.
+                    </p>
+                    <div class="fantasy-scroll__edge fantasy-scroll__edge--bottom" aria-hidden="true"
+                    ></div>
+                </section>
+
+                <details class="fantasy-tome">
+                    <summary>
+                        <span class="fantasy-eyebrow">Seizoen 1 — Lost Mines of Phandelver</span>
+                    </summary>
+                    <div class="fantasy-tome__body">
+                        <div class="fantasy-tome__image">
+                            <Image src={phandelver} alt="Lost Mines of Phandelver" />
+                        </div>
+                        <p>
+                            De Justus league is een onwaarschijnlijke groep avonturiers die bij elkaar
+                            zijn gekomen op een missie om de verloren mijnen van Phandelver te
+                            ontdekken.
+                        </p>
+                        <p>
+                            De groep bestaat uit een Halfling Monk "Ool", Halfling Fighter "Nedsie
+                            Evermind", Elf Druid "Ithil", Changling Warlock "XannaX Moonshadow" en
+                            Dragonborn Barbarian "Fernir". Die nu vervangen is door de Dragonborn
+                            Paladin "Maldrak".
+                        </p>
+                        <p>
+                            Samen trotseren ze gevaarlijke obstakels en overwinnen ze uitdagende
+                            beproevingen, hopend op de dag dat ze de mythische mijnen zullen ontdekken
+                            en hun lot zullen vervullen.
+                        </p>
+                        <p class="fantasy-tome__more">
+                            <a href="/justus-league/sessions/">Alle sessies bekijken</a>
+                        </p>
+                    </div>
+                </details>
+            </main>
+        </div>
+        <style is:global>
+            /* Home-only: warm fantasy atmosphere without affecting other routes */
+            body:has(.fantasy-page) {
+                border-color: #5c4a3a;
+            }
+
+            body:has(.fantasy-page)::before {
+                content: '';
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                opacity: 0.04;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+                z-index: 0;
+            }
+
+            body:has(.fantasy-page) nav a {
+                color: #d8c8a8;
+            }
+
+            body:has(.fantasy-page) nav a:hover {
+                color: #f4e8d4;
+            }
+        </style>
         <style>
-            h1 {
-                font-size: 6em;
-                line-height: 20px;
+            .fantasy-page {
+                position: relative;
+                z-index: 1;
+                padding-bottom: 2.5rem;
+            }
+
+            .visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .fantasy-hero {
+                text-align: center;
+                padding: 0.5rem 0 2rem;
+            }
+
+            .fantasy-hero__ornament {
+                height: 1px;
+                max-width: min(18rem, 70%);
+                margin-left: auto;
+                margin-right: auto;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(201, 162, 39, 0.5) 20%,
+                    rgba(201, 162, 39, 0.85) 50%,
+                    rgba(201, 162, 39, 0.5) 80%,
+                    transparent
+                );
+            }
+
+            .fantasy-hero__ornament--top {
+                margin-bottom: 1.25rem;
+            }
+
+            .fantasy-hero__ornament--bottom {
+                margin-top: 2rem;
+            }
+
+            .fantasy-eyebrow {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.05rem;
+                font-style: italic;
+                letter-spacing: 0.35em;
+                color: #c9a46c;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            }
+
+            .fantasy-hero__eyebrow {
+                margin: 0 0 0.5rem;
+            }
+
+            .fantasy-hero h1 {
+                margin: 0 0 1.35rem;
+                font-family: 'PirataOne-Regular', system-ui, sans-serif;
+                font-size: clamp(2.75rem, 12vw, 4.5rem);
+                line-height: 1.05;
+                letter-spacing: 0.03em;
+                color: #f4e8d4;
+                text-shadow:
+                    0 0 28px rgba(212, 175, 90, 0.35),
+                    0 2px 0 #3d2918,
+                    0 4px 12px rgba(0, 0, 0, 0.9),
+                    0 0 2px rgba(0, 0, 0, 1);
+                filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+            }
+
+            .fantasy-hero__frame {
+                position: relative;
+                width: fit-content;
+                max-width: 100%;
+                margin-inline: auto;
+                padding: 5px;
+                background: linear-gradient(
+                    145deg,
+                    #6b4c2e 0%,
+                    #3d2818 35%,
+                    #2a1810 65%,
+                    #5a3d24 100%
+                );
+                border-radius: 3px;
+                box-shadow:
+                    0 0 0 2px #1a0f0a,
+                    0 0 0 5px #8b6239,
+                    0 0 0 7px #2a1810,
+                    inset 0 2px 0 rgba(255, 200, 140, 0.12),
+                    0 20px 50px rgba(0, 0, 0, 0.65),
+                    0 0 60px rgba(80, 50, 30, 0.25);
+            }
+
+            .fantasy-hero__frame::before {
+                content: '';
+                position: absolute;
+                inset: 10px;
+                border: 1px solid rgba(201, 162, 39, 0.25);
+                border-radius: 1px;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .fantasy-hero__frame-inner {
+                display: block;
+                width: fit-content;
+                max-width: 100%;
+                overflow: hidden;
+                border-radius: 1px;
+                box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
+            }
+
+            .fantasy-hero__cover {
+                display: block;
+                width: auto;
+                max-width: 100%;
+                height: auto;
+                max-height: min(88vh, 920px);
+            }
+
+            .fantasy-hero__latest {
+                position: relative;
+                margin: 2.35rem 0 0;
+                padding-top: 1.55rem;
+                max-width: min(48ch, 100%);
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'PirataOne-Regular', system-ui, sans-serif;
+                font-size: clamp(1.45rem, 4.5vw, 2.15rem);
+                font-style: normal;
+                font-weight: normal;
+                line-height: 1.2;
+                letter-spacing: 0.04em;
+                text-align: center;
+                text-wrap: balance;
+                color: #f2e6c8;
+                text-shadow:
+                    0 0 22px rgba(212, 175, 90, 0.55),
+                    0 2px 0 #1c120c,
+                    0 4px 16px rgba(0, 0, 0, 0.88);
+            }
+
+            .fantasy-hero__latest::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: min(14rem, 70%);
+                height: 1px;
+                background: linear-gradient(
+                    90deg,
+                    transparent 0%,
+                    rgba(201, 162, 39, 0.75) 50%,
+                    transparent 100%
+                );
+            }
+
+            .fantasy-hero__actions {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1.35rem;
+            }
+
+            .fantasy-btn {
+                display: inline-block;
+                padding: 0.55em 1.35em;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.05rem;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                text-decoration: none;
+                color: #f4e8d4;
+                border: 2px solid #b8923f;
+                border-radius: 3px;
+                background: linear-gradient(
+                    180deg,
+                    rgba(75, 52, 36, 0.95) 0%,
+                    rgba(38, 26, 18, 0.98) 100%
+                );
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 210, 160, 0.12),
+                    0 4px 14px rgba(0, 0, 0, 0.5);
+                transition:
+                    border-color 0.15s ease,
+                    background 0.15s ease,
+                    transform 0.12s ease;
+            }
+
+            .fantasy-btn:hover {
+                text-decoration: none;
+                color: #fff8ea;
+                border-color: #e0bc5c;
+                background: linear-gradient(
+                    180deg,
+                    rgba(95, 65, 42, 0.98) 0%,
+                    rgba(48, 32, 22, 0.99) 100%
+                );
+                transform: translateY(-1px);
+            }
+
+            .fantasy-btn--primary {
+                border-color: #d4a84b;
+                background: linear-gradient(
+                    180deg,
+                    rgba(95, 62, 38, 0.98) 0%,
+                    rgba(45, 28, 18, 0.99) 100%
+                );
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 220, 160, 0.18),
+                    0 0 20px rgba(180, 130, 50, 0.15),
+                    0 6px 18px rgba(0, 0, 0, 0.55);
+            }
+
+            .fantasy-scroll {
+                position: relative;
+                margin: 2rem 0;
+                padding: 1.75rem 1.5rem 1.85rem;
+                color: #e8dcc8;
+                background: linear-gradient(
+                    175deg,
+                    rgba(55, 42, 32, 0.92) 0%,
+                    rgba(32, 26, 20, 0.96) 100%
+                );
+                border: 2px solid #5c4030;
+                border-radius: 2px;
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 220, 180, 0.06),
+                    inset 0 -20px 40px rgba(0, 0, 0, 0.2),
+                    0 10px 28px rgba(0, 0, 0, 0.45);
+            }
+
+            .fantasy-scroll::after {
+                content: '';
+                position: absolute;
+                inset: 4px;
+                border: 1px solid rgba(201, 162, 39, 0.12);
+                border-radius: 1px;
+                pointer-events: none;
+            }
+
+            .fantasy-scroll p {
+                margin: 0;
+                position: relative;
+                z-index: 1;
+                font-size: 1.08rem;
+                line-height: 1.55;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            .fantasy-scroll__edge {
+                position: absolute;
+                left: 8%;
+                right: 8%;
+                height: 4px;
+                background: repeating-linear-gradient(
+                    90deg,
+                    rgba(184, 146, 63, 0.35) 0,
+                    rgba(184, 146, 63, 0.35) 4px,
+                    transparent 4px,
+                    transparent 8px
+                );
+                opacity: 0.7;
+            }
+
+            .fantasy-scroll__edge--top {
+                top: 6px;
+            }
+
+            .fantasy-scroll__edge--bottom {
+                bottom: 6px;
+            }
+
+            .fantasy-tome {
+                margin-top: 0.5rem;
+                padding: 0.75rem 1rem 1.15rem;
+                background: linear-gradient(
+                    180deg,
+                    rgba(38, 28, 22, 0.92) 0%,
+                    rgba(22, 17, 14, 0.97) 100%
+                );
+                border: 2px solid #4a3428;
+                border-radius: 3px;
+                box-shadow:
+                    inset 0 2px 12px rgba(0, 0, 0, 0.35),
+                    0 8px 24px rgba(0, 0, 0, 0.35);
+            }
+
+            .fantasy-tome summary {
+                cursor: pointer;
+                list-style: none;
+                padding: 0.35rem 0;
                 text-align: center;
             }
 
-            h2 {
-                margin: 0.5em 0;
+            .fantasy-tome summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .fantasy-tome__body {
+                margin-top: 1rem;
+                padding-top: 0.75rem;
+                border-top: 1px solid rgba(92, 64, 48, 0.6);
+                color: #d5c9b8;
+            }
+
+            .fantasy-tome__body p {
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+            }
+
+            .fantasy-tome__image {
+                margin-bottom: 1rem;
+                border: 2px solid #5c4030;
+                border-radius: 2px;
+                overflow: hidden;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            }
+
+            .fantasy-tome__more {
+                margin-top: 1.25rem;
+                margin-bottom: 0;
+            }
+
+            .fantasy-tome__more a {
+                font-family: 'Cormorant Garamond', serif;
+                font-weight: 600;
+                letter-spacing: 0.04em;
+                color: #e0c585;
+            }
+
+            .fantasy-tome__more a:hover {
+                color: #f2e3b0;
             }
 
             @media only screen and (max-width: 768px) {
-                h1 {
-                    font-size: 3em;
-                    line-height: 1.1;
+                .fantasy-btn {
+                    width: 100%;
+                    max-width: 300px;
+                    text-align: center;
                 }
-            }
 
-            .intro {
-                text-align: center;
+                .fantasy-scroll {
+                    padding: 1.5rem 1.15rem;
+                }
             }
         </style>
     </body>

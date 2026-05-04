@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'Justus league';
 export const SITE_DESCRIPTION =
-    'De adventure log van de Justus league. Lees hoe de Justice league door de forgotten realms de Lost Mines of Phandelver ontdekken.';
+    'Avonturenlog van de Justus League—seizoen 2: nieuwe hoofdstukken na Javelin. Volg sessies, personages en locaties in de Forgotten Realms.';

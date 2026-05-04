@@ -5,26 +5,15 @@ import Header from '@components/Header.astro';
 interface Props {
     title: string;
     description: string;
-    /** Wider main column for location cards etc. */
-    contentWidth?: 'default' | 'wide';
 }
 
-const { title, description, contentWidth = 'default' } = Astro.props;
-const isWide = contentWidth === 'wide';
+const { title, description } = Astro.props;
 ---
 
-<html lang="en" class:list={['page-npc', isWide && 'page-npc--wide']}>
+<html lang="en">
     <head>
         <BaseHead title={title} description={description} />
         <style>
-            .page-npc body {
-                max-width: min(1080px, 94vw);
-            }
-
-            .page-npc.page-npc--wide body {
-                max-width: min(1320px, 96vw);
-            }
-
             .title {
                 font-family: PirataOne-Regular, serif;
                 font-size: clamp(2rem, 5vw, 2.75rem);
