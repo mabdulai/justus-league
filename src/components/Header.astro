@@ -5,23 +5,97 @@ import HeaderLink from './HeaderLink.astro';
 <header>
     <nav>
         <HeaderLink href="/justus-league/">Home</HeaderLink>
+        <span class="nav-separator" aria-hidden="true">✦</span>
         <HeaderLink href="/justus-league/sessions">Sessions</HeaderLink>
+        <span class="nav-separator" aria-hidden="true">✦</span>
         <HeaderLink href="/justus-league/characters">Justus-League</HeaderLink>
+        <span class="nav-separator" aria-hidden="true">✦</span>
         <HeaderLink href="/justus-league/npc">NPC's</HeaderLink>
+        <span class="nav-separator" aria-hidden="true">✦</span>
         <HeaderLink href="/justus-league/locations">Locaties</HeaderLink>
     </nav>
 </header>
 <style>
     header {
-        margin: 0em 0 2em;
+        margin: 0 0 2em;
+        position: relative;
     }
-    h2 {
-        margin: 0.5em 0;
+    nav {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.08rem;
+        padding: 0.68rem 1rem 0.78rem;
+        border: 1px solid rgb(174 130 74 / 78%);
+        border-radius: 12px;
+        background: linear-gradient(
+            180deg,
+            rgb(78 56 38 / 95%) 0%,
+            rgb(50 34 24 / 97%) 45%,
+            rgb(34 24 19 / 98%) 100%
+        );
+        box-shadow:
+            inset 0 1px 0 rgb(255 230 185 / 24%),
+            inset 0 -1px 0 rgb(45 30 21 / 85%),
+            inset 0 0 0 1px rgb(33 24 19 / 72%),
+            0 0 0 1px rgb(214 173 100 / 18%),
+            0 14px 34px rgb(0 0 0 / 32%);
+    }
+    nav::before {
+        content: '';
+        position: absolute;
+        inset: 7px;
+        border-radius: 9px;
+        pointer-events: none;
+        border: 1px solid rgb(231 194 127 / 35%);
+        box-shadow:
+            inset 0 1px 0 rgb(255 228 170 / 12%),
+            inset 0 -1px 0 rgb(122 85 47 / 22%);
+    }
+    nav::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: -11px;
+        transform: translateX(-50%);
+        width: min(12rem, 52%);
+        height: 18px;
+        pointer-events: none;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgb(237 199 126 / 42%),
+            transparent
+        );
+        filter: blur(2.5px);
+    }
+    .nav-separator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.15rem;
+        flex: 0 0 1.15rem;
+        color: #e4bb6a;
+        font-size: 0.82rem;
+        margin: 0;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        text-shadow:
+            0 0 10px rgb(244 202 113 / 52%),
+            0 1px 0 rgb(74 50 30 / 70%);
     }
 
     @media only screen and (max-width: 768px) {
         nav {
-            text-align: center;
+            gap: 0.04rem;
+            padding: 0.55rem 0.65rem 0.62rem;
+        }
+        .nav-separator {
+            width: 0.95rem;
+            flex-basis: 0.95rem;
         }
     }
 </style>
