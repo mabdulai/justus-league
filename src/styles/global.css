@@ -140,7 +140,7 @@ a:hover {
     text-decoration: underline;
 }
 nav a {
-    margin-right: 10px;
+    margin: 0 10px;
 }
 textarea {
     width: 100%;
