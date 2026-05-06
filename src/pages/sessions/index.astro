@@ -2,14 +2,15 @@
 import BaseHead from '@components/BaseHead.astro';
 import Header from '@components/Header.astro';
 import FormattedDate from '@components/FormattedDate.astro';
+import { Image } from 'astro:assets';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const sessions = (await getCollection('sessions')).sort(
     (a, b) => b.data.sessionDate.valueOf() - a.data.sessionDate.valueOf()
 );
-const season1Sessions = sessions.filter(post => (post.data.season ?? 1) === 1);
-const season2Sessions = sessions.filter(post => post.data.season === 2);
+const latestSessions = sessions.slice(0, 5);
+const olderSessions = sessions.slice(5);
 ---
 
 <!DOCTYPE html>
@@ -17,56 +18,171 @@ const season2Sessions = sessions.filter(post => post.data.season === 2);
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
         <style>
-            ul {
-                list-style-type: none;
-                padding: unset;
+            .latest-grid {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: 1fr;
+                margin-bottom: 2rem;
             }
-            ul li {
+
+            .session-card {
                 display: flex;
+                flex-direction: column;
+                background: #231616;
+                border: 1px solid rgb(255 255 255 / 10%);
+                border-radius: 4px;
+                overflow: hidden;
+                box-shadow: 0 0 0 1px rgb(17 20 24 / 10%), 0 2px 4px rgb(17 20 24 / 20%),
+                    0 8px 24px rgb(17 20 24 / 20%);
             }
-            :global(time) {
-                flex: 0 0 130px;
-                font-style: italic;
+
+            .session-card a {
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                gap: 1rem;
+                align-items: stretch;
             }
-            ul li a:visited {
+
+            .card-image {
+                aspect-ratio: 16 / 10;
+                object-fit: cover;
+                width: 240px;
+                flex: 0 0 240px;
+                border-radius: 0;
+            }
+
+            .card-body {
+                padding: 0.8rem 1rem 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .card-title {
+                margin: 0.2rem 0;
+                font-size: 1.35rem;
+                line-height: 1.2;
+            }
+
+            .card-description {
+                margin: 0.35rem 0 0;
+                color: #bcc4d2;
+                line-height: 1.25;
+            }
+
+            .season-label {
+                margin: 0;
+                font-size: 0.95rem;
                 color: #f2e705;
+            }
+
+            .session-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                gap: 0.75rem;
+            }
+
+            .session-list-item {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 0.75rem 0.9rem;
+                border-radius: 4px;
+                background: #231616;
+                border: 1px solid rgb(255 255 255 / 10%);
+                align-items: flex-start;
+            }
+
+            .session-list-item a {
+                font-weight: 600;
+            }
+
+            .session-list-main {
+                display: flex;
+                flex-direction: column;
+                gap: 0.15rem;
+            }
+
+            :global(.session-list-main time) {
+                display: block;
+                margin-right: 0;
+            }
+
+            .session-list-item p {
+                margin: 0;
+                color: #c6ccd8;
+            }
+
+            :global(.session-list-item time),
+            :global(.session-card time) {
+                font-style: italic;
+                color: #aeb7c7;
+                margin-right: 0.4rem;
+                font-size: 0.9rem;
+                letter-spacing: 0.02em;
+            }
+
+            @media only screen and (max-width: 768px) {
+                .session-card a {
+                    flex-direction: column;
+                    gap: 0;
+                }
+
+                .card-image {
+                    width: 100%;
+                    flex-basis: auto;
+                }
             }
         </style>
     </head>
     <body>
         <Header />
         <main>
-            <section aria-labelledby="season-2">
-                <h2 id="season-2">Season 2</h2>
-                {
-                    season2Sessions.length > 0 ? (
-                        <ul>
-                            {
-                                season2Sessions.map(post => (
-                                    <li>
-                                        <FormattedDate date={post.data.sessionDate} />
-                                        <a href={`/justus-league/sessions/${post.slug}/`}>
-                                            {post.data.title}
-                                        </a>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    ) : (
-                        <p>Coming soon.</p>
-                    )
-                }
-            </section>
-            <section aria-labelledby="season-1">
-                <h2 id="season-1">Season 1</h2>
-                <ul>
+            <section aria-labelledby="latest-sessions">
+                <h2 id="latest-sessions">Latest Sessions</h2>
+                <div class="latest-grid">
                     {
-                        season1Sessions.map(post => (
-                            <li>
-                                <FormattedDate date={post.data.sessionDate} />
+                        latestSessions.map(post => (
+                            <article class="session-card">
                                 <a href={`/justus-league/sessions/${post.slug}/`}>
-                                    {post.data.title}
+                                    {
+                                        post.data.heroImage && (
+                                            <Image
+                                                class="card-image"
+                                                src={post.data.heroImage}
+                                                alt={post.data.title}
+                                            />
+                                        )
+                                    }
+                                    <div class="card-body">
+                                        <p class="season-label">Season {post.data.season ?? 1}</p>
+                                        <h3 class="card-title">{post.data.title}</h3>
+                                        <FormattedDate date={post.data.sessionDate} />
+                                        <p class="card-description">{post.data.description}</p>
+                                    </div>
                                 </a>
+                            </article>
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section aria-labelledby="all-older-sessions">
+                <h2 id="all-older-sessions">All Previous Sessions</h2>
+                <ul class="session-list">
+                    {
+                        olderSessions.map(post => (
+                            <li class="session-list-item">
+                                <div class="session-list-main">
+                                    <a href={`/justus-league/sessions/${post.slug}/`}>
+                                        {post.data.title}
+                                    </a>
+                                    <FormattedDate date={post.data.sessionDate} />
+                                </div>
+                                <p>{post.data.description}</p>
                             </li>
                         ))
                     }
